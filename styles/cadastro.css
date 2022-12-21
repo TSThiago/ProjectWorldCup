@@ -53,6 +53,7 @@ html {
 }
 
 form{
+  border-radius: 1em;
     background-color: white;
     margin: 5vh auto; 
     display: flex;
