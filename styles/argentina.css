@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+html {
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+  
+  *, *:before, *:after {
+    box-sizing: inherit;
+    text-decoration: none;
+  }
+  
+  body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+  }
+  
+  ol, ul {
+    list-style: none;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  body{
+    font-family: Poppins;
+        background-color: #eeeeee;
+  }
+
+.navBar{
+    display: flex;
+    justify-content: space-between;
+    background-color: #042940;
+    height: 20vh;
+    align-items: center;
+}
+
+.navImage{
+    margin-left: 30px;
+}
+
+.navPages{
+    margin-right: 20px;
+}
+
+.navPages a{
+    text-decoration: none;
+    font-size: 30px;
+    margin: 10px;
+    color: white;
+}
+
+.options{
+    margin: 0 auto;
+    height: 20vh;
+    width: 90vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.button {
+    display: grid;
+    place-content: center;
+    background-color: #042940;
+    width:8vw;
+    height:8vh;
+    border-radius: 1.5em;
+}
+
+.button a{
+    color:white
+}
+
+.nationalTeam{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 10vh;
+    width:30vw;
+}
+
+.nationalTeam img{
+    height: 15vh;
+}
+
+.nationalTeam span{
+    height: 3vh;
+    font-weight: 700;
+    font-size: larger;
+}
+
+.nationalTeam a{
+    margin-top: 1.5vh;
+    display: grid;
+    place-content: center;
+    background-color: #042940;
+    color:white;
+    width:12vw;
+    height:5vh;
+    border-radius: 1.5em;
+}
+
+.matchResults{
+    width: 90vw;
+    margin:2vh auto
+}
+
+.matchBox {
+    margin: 0 auto;
+    height: 30vh;
+    width:50vw;
+    background-color: white;
+    border-radius: 1em;
+}
