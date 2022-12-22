@@ -27,8 +27,10 @@ html {
 
   body{
     font-family: Poppins;
-        background-color: #eeeeee;
+    background-color: #eeeeee;
   }
+
+  /* Both Pages */
 
 .navBar{
     display: flex;
@@ -52,6 +54,8 @@ html {
     margin: 10px;
     color: white;
 }
+
+/* Argentina Page */
 
 .options{
     margin: 0 auto;
@@ -108,13 +112,76 @@ html {
 
 .matchResults{
     width: 90vw;
+    height: auto;
     margin:2vh auto
 }
 
 .matchBox {
+    display: flex;
+    flex-wrap: wrap;
     margin: 0 auto;
     height: 30vh;
-    width:50vw;
+    width:60vw;
     background-color: white;
     border-radius: 1em;
+}
+
+.matchBox h3 {
+    margin-top: 1vh;
+    height: 6vh;
+    width: 60vw;
+    text-align: center;
+}
+
+#matchScores {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: larger;
+    gap: 1vw;
+    height: 24vh;
+    width: 60vw;
+    margin: 0 auto;
+    background-color: white;
+    overflow: hidden;
+}
+
+/* .matchScores:hover {
+    border-radius: 1em;
+    transition-duration: 0.5s;
+    transition-timing-function: linear;
+    height: 48vh;
+    margin:0 auto 2vh auto;
+} */
+
+#matchScores button {
+    font-family: Poppins;
+    font-size: large;
+    cursor: pointer;
+    height: 5vh;
+    width: 14vw;
+    margin:auto;
+    border-radius: 1em;
+    background-color: #fcf43e;
+}
+
+.score {
+    display: grid;
+    place-content: center;
+    text-align: center;
+    border-color: black;
+    height: 22vh;
+    width:21vw;
+    margin: 0 auto;
+    border-radius: 1em;
+    background-color: #75a9db;
+}
+
+/* Players Page */
+
+.backButton {
+    color: white;
+    border-radius: 1.5em;
+    height: 5vh;
+    width: 40vw;
+    background-color: #042940;
 }
