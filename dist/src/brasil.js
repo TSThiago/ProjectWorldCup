@@ -5,8 +5,7 @@ const scoreboardHidden = document.getElementById('scoreboardHidden');
 function seeMore() {
     if (sectionQualifying && scoreboardHidden && buttonMore !== null) {
         sectionQualifying.style.height = '35vh';
-        sectionQualifying.style.transition = '0.7s';
-        sectionQualifying.style.overflow = 'hidden';
+        sectionQualifying.style.transition = '1s';
         scoreboardHidden.style.display = 'block';
         buttonMore.innerHTML = 'Ver menos';
     }
@@ -20,5 +19,4 @@ function seeLess() {
     }
 }
 buttonMore === null || buttonMore === void 0 ? void 0 : buttonMore.addEventListener('click', seeMore);
-// buttonMore?.addEventListener('click', seeLess)
 //# sourceMappingURL=brasil.js.map
