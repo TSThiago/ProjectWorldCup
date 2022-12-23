@@ -89,7 +89,6 @@ html {
 }
 
 .qualifying, .penultimateGame, .lastGame{
-    display: flex;
     align-items: center;
     text-align: center;
     width: 80vw;
@@ -99,10 +98,28 @@ html {
     border-radius: 10px;
     margin-top: 40px;
     border: solid 1px rgb(199, 199, 199);
+    overflow: hidden;
 }
 
 .qualifying{
+    display: block;
+}
+
+.penultimateGame, .lastGame{
+    display: flex;
+}
+
+.title{
+    text-align: center;
+    margin-top: 10px;
+}
+
+.games{
+    display: flex;
     justify-content: space-around;
+    align-items: center;
+    width: 80vw;
+    flex-wrap: wrap;
 }
 
 .penultimateGame, .lastGame{
@@ -115,12 +132,13 @@ html {
 }
 
 .scoreboard{
+    width: 25vw;
     background-color: #ffdf00;
     padding: 15px;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .scoreboardHidden{
     display: none;
-    margin-top: 15px;
+    margin-top: 10px;
 }

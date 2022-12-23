@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../styles/playersBrasil.css">
+    <title>Jogos da Copa</title>
+</head>
+
+<body>
+    <header class="navBar">
+        <section class="navImage">
+            <a href="../../home.html"><img src="../../images/logo_semsite_semfundo (1).png" alt="logo da Flit"
+                    width="150"></a>
+        </section>
+        <section class="navPages">
+            <a href="../../home.html">Home</a>
+            <a href="index.html">Jogos</a>
+            <a href="../../cadastro.html">Cadastrar</a>
+        </section>
+    </header>
+    <section class="menu">
+        <section class="countryMenu">
+            <img src="../../images/brasil.jpg" alt="bandeira do Brasil" width="200">
+            <div class="title">
+                <span>Brasil</span>
+            </div>
+        </section>
+    </section>
+    <section class="filter">
+        <div class="filterTitle">
+            <span>Filtrar por idade</span>
+        </div>
+        <div class="filterAge">
+            <div class="inputs">
+                <label for="minimumAge">Idade mínima</label> <br>
+                <input type="text" id="minimumAge" placeholder="Ex: 20">
+            </div>
+            <div class="inputs">
+                <label for="maximumAge">Idade máxima</label> <br>
+                <input type="text" id="maximumAge" placeholder="Ex: 35">
+            </div>
+        </div>
+    </section>
+    <section class="position">
+        <h1>Goleiros</h1>
+        <div class="playersCards" id="goalkeepers">
+        </div>
+    </section>
+    <section class="position">
+        <h1>Laterais</h1>
+        <div class="playersCards" id="laterals">
+            
+        </div>
+    </section>
+    <section class="position">
+        <h1>Zagueiros</h1>
+        <div class="playersCards" id="defenders">
+            
+        </div>
+    </section>
+    <section class="position">
+        <h1>Meio-campistas</h1>
+        <div class="playersCards" id="midfielders">
+            
+        </div>
+    </section>
+    <section class="position">
+        <h1>Atacantes</h1>
+        <div class="playersCards" id="attackers">
+            
+        </div>
+    </section>
+</body>
+<script src="../../dist/src/players.js"></script>
+</html>
