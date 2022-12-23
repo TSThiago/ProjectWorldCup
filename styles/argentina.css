@@ -114,57 +114,71 @@ html {
     width: 90vw;
     height: auto;
     margin:2vh auto
+
 }
 
-.matchBox {
+#groupBox {
     display: flex;
     flex-wrap: wrap;
-    margin: 0 auto;
-    height: 34vh;
+    height: 30vh;
     width:90vw;
     background-color: white;
-    border-radius: 1em;
-}
-
-.matchBox h3 {
-    margin-top: 1vh;
-    height: 6vh;
-    width: 90vw;
-    text-align: center;
-}
-
-#matchScores {
-    display: flex;
-    flex-wrap: wrap;
-    font-size: larger;
-    gap: 1vw;
-    height: 24vh;
-    width: 90vw;
-    margin: 0 auto;
-    background-color: white;
     overflow: hidden;
+    border-radius: 1em;
 }
 
-#matchScores button {
-    font-family: Poppins;
-    font-size: large;
-    cursor: pointer;
+#groupBox h3 {
     height: 5vh;
-    width: 14vw;
-    margin:auto;
-    border-radius: 1em;
-    background-color: #fcf43e;
+    width: 90vw;
+    display: grid;
+    gap: 1vh;
+    place-content: center;
+    text-align: center;
 }
 
 .score {
+    height: 23vh;
+    width:35vw;
+    border-radius: 1em;
+    margin: 1vh auto;
     display: grid;
     place-content: center;
     text-align: center;
-    border-color: black;
-    height: 22vh;
-    width:30vw;
-    margin: 0 auto;
-    border-radius: 1em;
     background-color: #75a9db;
 }
 
+.groupBut {
+    height: 23vh;
+    width: 10vw;
+    display: grid;
+    place-content: center;
+}
+
+#groupButton {
+    font-size: larger;
+    border-radius: 1em;
+    height: 8vh;
+    width: 10vw;
+    background-color: #fcf43e;
+    cursor: pointer;
+}
+
+.box {
+    display: flex;
+    flex-wrap: wrap;
+    margin:2vh auto;
+    height: 30vh;
+    width:40vw;
+    background-color: white;
+    overflow: hidden;
+    border-radius: 1em;
+}
+
+.box h3 {
+    height: 5vh;
+    width: 40vw;
+    display: grid;
+    gap: 1vh;
+    place-content: center;
+    text-align: center;
+}
