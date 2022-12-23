@@ -19,8 +19,7 @@ class Match {
 }
 let allMatches = getAllMatches()
     .then(function (data) {
-    let nationalTeamMatches = getNationalTeamMatches("Argentina", data);
-    console.log(nationalTeamMatches);
+    console.log(getNationalTeamMatches("Argentina", data));
 });
 async function getAllMatches() {
     let arrayMatches = await fetch('https://apigenerator.dronahq.com/api/zs9PYAhn/jogos');
