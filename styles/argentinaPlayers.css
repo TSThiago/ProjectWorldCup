@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+/* CSS Reset */
+
+html {
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+  
+  *, *:before, *:after {
+    box-sizing: inherit;
+    text-decoration: none;
+  }
+  
+  body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+  }
+  
+  ol, ul {
+    list-style: none;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  body{
+    font-family: Poppins;
+    background-color: white;
+  }
+
+ /* Nav Bar */
+
+.navBar{
+    display: flex;
+    justify-content: space-between;
+    background-color: #75a9db;
+    height: 20vh;
+    align-items: center;
+}
+
+.navImage{
+    margin-left: 30px;
+}
+
+.navPages{
+    margin-right: 20px;
+}
+
+.navPages a{
+    text-decoration: none;
+    font-size: 30px;
+    margin: 10px;
+    color: white;
+}
+
+
+/* Players Section*/
+
+.players {
+    margin:2vh auto 0 auto;
+    width: 90vw;
+}
+
+.position {
+    height: 40vh;
+    width: 90vw;
+}
+
+.playersCards {
+    margin-top: 2.5vh;
+    height: 30vh;
+    width: 90vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1vh;
+    overflow: hidden;
+}
+
+.player {
+    display: grid;
+    place-content: center;
+    text-align: center;
+    background-color: #fcf43e;
+    height: 220px;
+    width: 220px;
+    border-radius: 1em;
+}
+
+.player img {
+    border-radius: 1em;
+    object-fit: cover;
+    height: 150px;
+    width: 150px;
+}
+
+.backButtonSection{
+    height: 5vh;
+    width: 90vw;
+    margin: 2vh auto;
+    display: flex;
+}
+
+.backButton{
+    display: grid;
+    place-content: center;
+    color: white;
+    border-radius: 1.5em;
+    height: 5vh;
+    width: 10vw;
+    background-color: #75a9db;
+}

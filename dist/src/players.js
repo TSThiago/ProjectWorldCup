@@ -1,4 +1,3 @@
-"use strict";
 async function playersApi() {
     await fetch('https://apigenerator.dronahq.com/api/x5mONs4F/players')
         .then(function (response) {

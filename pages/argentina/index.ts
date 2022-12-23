@@ -32,8 +32,7 @@ class Match {
 
 let allMatches = getAllMatches()
 .then(function (data){
-    let nationalTeamMatches = getNationalTeamMatches("Argentina", data)
-    console.log(nationalTeamMatches)
+    console.log(getNationalTeamMatches("Argentina", data))
 })
 
 async function getAllMatches() : Promise<Response> {
@@ -42,7 +41,7 @@ async function getAllMatches() : Promise<Response> {
     return arrayMatches
 }
 
-async function getNationalTeamMatches(nationalTeam : string, data : Match[]) : Promise<Match[]> {
+async function getNationalTeamMatches(nationalTeam : string, data : any) : Promise<Match[]> {
     let arrayNationalTeamMatches : Match[] = []  
     for(let index : number = 0; index < data.length; index++){
         if(data[index].timeA === nationalTeam ||  data[index].timeB === nationalTeam){
