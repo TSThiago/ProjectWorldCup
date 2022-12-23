@@ -1,15 +1,15 @@
 "use strict";
 const button = document.getElementById('matchButton');
-const matchBox = document.getElementById('matchScores');
+const matchScores = document.getElementById('matchScores');
 let showMore = false;
 button.addEventListener('click', (e) => {
     if (showMore) {
-        matchBox.style.height = '24vh';
+        matchScores.style.cssText = "border-radius: 1em; transition-duration: 0.5s; transition-timing-function: linear; height: 48vh; margin:0 auto 2vh auto";
         button.textContent = 'Ver Mais';
         showMore = false;
     }
     else {
-        matchBox.style.height = '60vh';
+        matchScores.style.height = '60vh';
         button.textContent = 'Ver Menos';
         showMore = true;
     }
