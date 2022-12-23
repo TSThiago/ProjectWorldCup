@@ -5,36 +5,48 @@
 html {
     box-sizing: border-box;
     font-size: 16px;
-  }
-  
-  *, *:before, *:after {
+}
+
+*,
+*:before,
+*:after {
     box-sizing: inherit;
     text-decoration: none;
-  }
-  
-  body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
     margin: 0;
     padding: 0;
     font-weight: normal;
-  }
-  
-  ol, ul {
+}
+
+ol,
+ul {
     list-style: none;
-  }
-  
-  img {
+}
+
+img {
     max-width: 100%;
     height: auto;
-  }
+}
 
-  body{
+body {
     font-family: Poppins;
     background-color: white;
-  }
+}
 
- /* Nav Bar */
+/* Nav Bar */
 
-.navBar{
+.navBar {
     display: flex;
     justify-content: space-between;
     background-color: #75a9db;
@@ -42,15 +54,15 @@ html {
     align-items: center;
 }
 
-.navImage{
+.navImage {
     margin-left: 30px;
 }
 
-.navPages{
+.navPages {
     margin-right: 20px;
 }
 
-.navPages a{
+.navPages a {
     text-decoration: none;
     font-size: 30px;
     margin: 10px;
@@ -60,25 +72,50 @@ html {
 
 /* Players Section*/
 
+
 .players {
-    margin:2vh auto 0 auto;
+    margin: 2vh auto 0 auto;
     width: 90vw;
 }
 
 .position {
-    height: 40vh;
+    display: flex;
+    flex-wrap: wrap;
+    height: 37vh;
     width: 90vw;
 }
 
+.position h2 {
+    width: 90vw
+}
+
 .playersCards {
-    margin-top: 2.5vh;
-    height: 30vh;
-    width: 90vw;
+    margin: 0 auto;
+    height: 32vh;
+    width: 80vw;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     gap: 1vh;
-    overflow: hidden;
+    overflow-y: hidden;
+}
+
+.playersCards::-webkit-scrollbar {
+    display: none;
+}
+
+.arrow {
+    width: 4vw;
+    height: 32vh;
+    display: grid;
+    place-content: center;
+    opacity: 0;
+}
+
+.arrow:hover {
+    opacity: 0.2;
+    border: none;
+    background-color: transparent;
 }
 
 .player {
@@ -98,14 +135,14 @@ html {
     width: 150px;
 }
 
-.backButtonSection{
+.backButtonSection {
     height: 5vh;
     width: 90vw;
     margin: 2vh auto;
     display: flex;
 }
 
-.backButton{
+.backButton {
     display: grid;
     place-content: center;
     color: white;
