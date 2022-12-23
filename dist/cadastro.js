@@ -1,4 +1,3 @@
-"use strict";
 let submitButton = document.getElementById('submit');
 let nationalTeam = document.getElementById('nationalTeam');
 let player = document.getElementById('name');

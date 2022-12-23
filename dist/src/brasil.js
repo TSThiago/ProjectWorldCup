@@ -1,4 +1,3 @@
-"use strict";
 // BOTÃO DE VER MAIS E VER MENOS
 const buttonMore = document.getElementById('buttonMore');
 const sectionQualifying = document.getElementById('qualifying');
