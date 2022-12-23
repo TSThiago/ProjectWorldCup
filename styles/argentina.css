@@ -120,8 +120,8 @@ html {
     display: flex;
     flex-wrap: wrap;
     margin: 0 auto;
-    height: 30vh;
-    width:60vw;
+    height: 34vh;
+    width:90vw;
     background-color: white;
     border-radius: 1em;
 }
@@ -129,7 +129,7 @@ html {
 .matchBox h3 {
     margin-top: 1vh;
     height: 6vh;
-    width: 60vw;
+    width: 90vw;
     text-align: center;
 }
 
@@ -139,19 +139,11 @@ html {
     font-size: larger;
     gap: 1vw;
     height: 24vh;
-    width: 60vw;
+    width: 90vw;
     margin: 0 auto;
     background-color: white;
     overflow: hidden;
 }
-
-/* .matchScores:hover {
-    border-radius: 1em;
-    transition-duration: 0.5s;
-    transition-timing-function: linear;
-    height: 48vh;
-    margin:0 auto 2vh auto;
-} */
 
 #matchScores button {
     font-family: Poppins;
@@ -170,7 +162,7 @@ html {
     text-align: center;
     border-color: black;
     height: 22vh;
-    width:21vw;
+    width:30vw;
     margin: 0 auto;
     border-radius: 1em;
     background-color: #75a9db;
