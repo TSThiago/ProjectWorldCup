@@ -44,6 +44,14 @@ body {
     background-color: white;
 }
 
+.mobile-menu-icon {
+    display:none
+  }
+  
+  .mobileMenu {
+    display:none
+  }
+
 /* Nav Bar */
 
 .navBar {
@@ -68,6 +76,7 @@ body {
     margin: 10px;
     color: white;
 }
+
 
 
 /* Players Section*/
@@ -102,6 +111,10 @@ body {
 
 .playersCards::-webkit-scrollbar {
     display: none;
+}
+
+#goalkeepers {
+    flex-direction: row;
 }
 
 .arrow {
@@ -150,4 +163,48 @@ body {
     height: 5vh;
     width: 10vw;
     background-color: #75a9db;
+}
+
+@media screen and (max-width:800px) {
+    .player {
+        height: 200px;
+        width: 200px;
+    }
+
+    .player img {
+        height: 140px;
+        width:140px
+    }
+
+    .navPages{
+        display:none
+      }
+    
+      #menuButton {
+        height: 40px;
+        width: 40px;
+      }
+    
+      .mobile-menu-icon{
+        display: block;
+        margin-right: 2vw;
+      }
+    
+      .mobile-menu-icon img {
+        height: 30px;
+        cursor: pointer;
+      }
+    
+      .mobileMenu a{
+        background-color: #75a9db;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        text-decoration: none;
+        color: white;
+      }
+    
+      .mobileMenu .open {
+        display:block;
+      }
 }

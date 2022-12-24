@@ -30,7 +30,13 @@ html {
     background-color: #eeeeee;
   }
 
-  /* Both Pages */
+  .mobile-menu-icon {
+    display:none
+  }
+  
+  .mobileMenu {
+    display:none
+  }
 
 .navBar{
     display: flex;
@@ -114,13 +120,12 @@ html {
     width: 90vw;
     height: auto;
     margin:2vh auto
-
 }
 
 #groupBox {
     display: flex;
     flex-wrap: wrap;
-    height: 30vh;
+    height: 40vh;
     width:90vw;
     background-color: white;
     overflow: hidden;
@@ -148,8 +153,8 @@ html {
 }
 
 .groupBut {
-    height: 23vh;
-    width: 10vw;
+    height: 10vh;
+    width: 90vw;
     display: grid;
     place-content: center;
 }
@@ -181,4 +186,62 @@ html {
     gap: 1vh;
     place-content: center;
     text-align: center;
+}
+
+@media screen and (max-width : 800px) {
+       .button {
+        display: grid;
+        place-content: center;
+        background-color: #042940;
+        width:10vw;
+        height:10vh;
+        border-radius: 1.5em;
+    }
+
+    .nationalTeam{
+        height:10vh;
+        width:35vw;
+        margin-right: 1vw;
+    }
+
+    .nationalTeam img{
+        margin-right: 1vw;
+    }
+
+    .nationalTeam a{
+        width:16vw;
+        height:5vh;
+    }
+
+    .navPages{
+        display:none
+      }
+    
+      #menuButton {
+        height: 40px;
+        width: 40px;
+      }
+    
+      .mobile-menu-icon{
+        display: block;
+        margin-right: 2vw;
+      }
+    
+      .mobile-menu-icon img {
+        height: 30px;
+        cursor: pointer;
+      }
+    
+      .mobileMenu a{
+        background-color: #75a9db;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        text-decoration: none;
+        color: white;
+      }
+    
+      .mobileMenu .open {
+        display:block;
+      }
 }

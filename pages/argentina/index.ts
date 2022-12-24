@@ -1,48 +1,54 @@
+let menu3button = document.querySelector('.icon') as HTMLElement
+let menu3Mobile = document.querySelector('.mobileMenu') as HTMLElement
 const button = document.getElementById('groupButton') as HTMLElement
+const groupStageBox = document.getElementById('groupStage') as HTMLElement
 const groupBox = document.getElementById('groupBox') as HTMLElement
 const lasts16: HTMLElement = document.getElementById('last16')
 const quarter: HTMLElement = document.getElementById('quarterFinals')
 const semi: HTMLElement = document.getElementById('semiFinals')
 const final: HTMLElement = document.getElementById('final')
 
+// Menu Mobile
+
+menu3button.addEventListener('click', (e) => {
+    if(menu3Mobile.style.display === 'block') {
+        menu3Mobile.style.display = 'none'
+    }else{
+        menu3Mobile.style.display = 'block'
+    }
+})   
+
 // Show More Games Button
 
 let showMore: boolean = false
 
-button.addEventListener('click', (e) => {
-    if (showMore) {
-        groupBox.style.cssText = 'border-radius: 1em; transition-duration: 0.5s; transition-timing-function: linear; height: 30vh; margin:0 auto 2vh auto;'
-        button.textContent = 'Ver Mais'
-        showMore = false
-    } else {
-        groupBox.style.cssText = 'border-radius: 1em; transition-duration: 0.5s; transition-timing-function: linear; height: 57vh; margin:0 auto 2vh auto;'
-        button.textContent = 'Ver Menos'
-        showMore = true
-    }
-})
+function ShowMoreMatches() {
+    button.addEventListener('click', (e) => {
+        if (showMore) {
+            groupBox.style.cssText = 'border-radius: 1em; transition-duration: 0.2s; transition-timing-function: linear; height: 40vh; margin:0 auto 2vh auto;'
+            button.textContent = 'Ver Mais'
+            showMore = false
+        } else {
+            groupBox.style.cssText = 'border-radius: 1em; transition-duration: 0.2s; transition-timing-function: linear; height: 67vh; margin:0 auto 2vh auto;'
+            button.textContent = 'Ver Menos'
+            showMore = true
+        }
+    })
+}
+
 
 // Get API Datas
 
-class Match {
-    timeA!: string
-    timeB!: string
-    data!: string
-    gols!: {
-        TimeA: number
-        TimeB: number
-    }
-    fase!: string
-    id!: number
-}
 
 getAllMatches()
     .then(function (data) {
-        console.log(data)
         return getNationalTeamMatches("Argentina", data)
     })
     .then(function (matches) {
         renderMatches(matches)
     })
+
+ShowMoreMatches()
 
 async function getAllMatches(): Promise<Response> {
     let arrayMatches: Response = await fetch('https://apigenerator.dronahq.com/api/zs9PYAhn/jogos')
@@ -50,37 +56,48 @@ async function getAllMatches(): Promise<Response> {
     return arrayMatches
 }
 
+interface Match {
+    timeA: string
+    timeB: string
+    data: string
+    gols: {
+        timeA: number
+        TimeB: number
+    }
+    fase: string
+    id: number
+}
+
 async function getNationalTeamMatches(nationalTeam: string, data: any): Promise<Match[]> {
     let arrayNationalTeamMatches: Match[] = []
     for (let index: number = 0; index < data.length; index++) {
         if (data[index].timeA === nationalTeam || data[index].timeB === nationalTeam) {
-            let match = new Match()
-            match.timeA = data[index].timeA
-            match.timeB = data[index].timeB
-            match.data = data[index].data
-            match.gols.TimeA = data[index].gols.timeA 
-            match.gols.TimeB = data[index].gols.TimeB
-            match.fase = data[index].fase
-
+            let match : Match
+            match = data[index]
             arrayNationalTeamMatches.push(match)
-            console.log(arrayNationalTeamMatches)
         }
     }
     return arrayNationalTeamMatches
 }
 
 function renderMatches(matches: Match[]) {
+    let divCreated : boolean = false
     matches.forEach(match => {
-        // if ((match.timeA === 'Argentina' && match.fase === 'Classificatória') || (match.timeB === 'Argentina' && match.fase === 'Classificatória')) {
-        //     let last16Box
-        // }
+        if ((match.timeA === 'Argentina' && match.fase === 'Classificatória') || (match.timeB === 'Argentina' && match.fase === 'Classificatória')) {
+            let stageBox = 
+            `<div class="score">
+                <p>${match.timeA} X ${match.timeB}</p>
+                <p>${match.gols.timeA} X ${match.gols.TimeB}</p>
+            </div>`
+            groupBox?.insertAdjacentHTML('beforeend', stageBox)
+        }
         if ((match.timeA === 'Argentina' && match.fase === 'Oitavas-Final') || (match.timeB === 'Argentina' && match.fase === 'Oitavas-Final')) {
             let last16Box =
                 `<div class="box">
             <h3>${match.fase}</h3>
             <div class="score">
                 <p>${match.timeA} X ${match.timeB}</p>
-                <p>${match.gols.TimeA} X ${match.gols.TimeB}</p>
+                <p>${match.gols.timeA} X ${match.gols.TimeB}</p>
             </div>
             </div>`
             lasts16?.insertAdjacentHTML('beforeend', last16Box)
@@ -91,7 +108,7 @@ function renderMatches(matches: Match[]) {
             <h3>${match.fase}</h3>
             <div class="score">
                 <p>${match.timeA} X ${match.timeB}</p>
-                <p>${match.gols.TimeA} X ${match.gols.TimeB}</p>
+                <p>${match.gols.timeA} X ${match.gols.TimeB}</p>
             </div>
             </div>`
             quarter?.insertAdjacentHTML('beforeend', quarterBox)
@@ -102,7 +119,7 @@ function renderMatches(matches: Match[]) {
             <h3>${match.fase}</h3>
             <div class="score">
                 <p>${match.timeA} X ${match.timeB}</p>
-                <p>${match.gols.TimeA} X ${match.gols.TimeB}</p>
+                <p>${match.gols.timeA} X ${match.gols.TimeB}</p>
             </div>
             </div>`
             semi?.insertAdjacentHTML('beforeend', semiBox)
@@ -113,10 +130,11 @@ function renderMatches(matches: Match[]) {
             <h3>${match.fase}</h3>
             <div class="score">
                 <p>${match.timeA} X ${match.timeB}</p>
-                <p>${match.gols.TimeA} X ${match.gols.TimeB}</p>
+                <p>${match.gols.timeA} X ${match.gols.TimeB}</p>
             </div>
             </div>`
             final?.insertAdjacentHTML('beforeend', finalBox)
         }
     })
 }
+

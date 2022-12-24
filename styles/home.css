@@ -28,6 +28,14 @@ html {
     font-family: Poppins;
   }
 
+.mobile-menu-icon {
+  display:none
+}
+
+.mobileMenu {
+  display:none
+}
+
 .navBar{
     display: flex;
     justify-content: space-between;
@@ -91,3 +99,44 @@ html {
     color: white;
 }
 
+@media screen and (max-width:800px) {
+  .navPages{
+    display:none
+  }
+
+  .mobile-menu-icon{
+    display: block;
+    margin-right: 2vw;
+  }
+
+  .mobile-menu-icon img {
+    height: 30px;
+    cursor: pointer;
+  }
+
+  .mobileMenu a{
+    background-color: #042940;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+  }
+
+  .mobileMenu .open {
+    display:block;
+  }
+
+  .flags{
+    width: 32vw;
+  }
+  .flags img{
+    width: 20vw;
+  }
+
+  .flags p {
+    display: grid;
+    place-content: center;
+    width: 12vw;
+  }
+}

@@ -41,6 +41,14 @@ body {
   background-color: #eeeeee;
 }
 
+.mobile-menu-icon {
+  display:none
+}
+
+.mobileMenu {
+  display:none
+}
+
 .navBar {
   display: flex;
   justify-content: space-between;
@@ -92,4 +100,38 @@ button {
   height: 4vh;
   width: 80px;
   margin:2vh auto 0 auto
+}
+
+@media screen and (max-width:800px) {
+  .navPages{
+    display:none
+  }
+
+  #menuButton {
+    height: 40px;
+    width: 40px;
+  }
+
+  .mobile-menu-icon{
+    display: block;
+    margin-right: 2vw;
+  }
+
+  .mobile-menu-icon img {
+    height: 30px;
+    cursor: pointer;
+  }
+
+  .mobileMenu a{
+    background-color: #042940;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+  }
+
+  .mobileMenu .open {
+    display:block;
+  }
 }
