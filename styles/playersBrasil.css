@@ -109,10 +109,7 @@ html {
 }
 
 .playersCards{
-    justify-content: center;
-    align-items: center;
     margin-top: 10px;
-    gap: 15px;
     white-space: nowrap;
     overflow-x: hidden;
 }
@@ -126,12 +123,12 @@ html {
     align-items: center;
     border: 1px solid rgba(117, 117, 117, 0.445);
     border-radius: 10px;
-    margin-left: 5px;
+    margin: 10px;
 }
 
 .player img{
-    width: 10vw;
-    height: 25vh;
+    width: 13vw;
+    height: 30vh;
     border-radius: 5px;
 }
 

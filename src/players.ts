@@ -31,7 +31,7 @@ function renderPlayersCards(playersList: iPlayers[]) {
             let attackersCard = `<div class="player">
                 <img src=${player.photo}>
                 <p>${player.player}</p>
-                <p>${player.age}</p>
+                <p>${player.age} anos</p>
             </div>`
             goalkeepers?.insertAdjacentHTML('beforeend', attackersCard)
         }
@@ -39,7 +39,7 @@ function renderPlayersCards(playersList: iPlayers[]) {
             let lateralsCard = `<div class="player">
             <img src=${player.photo}>
             <p>${player.player}</p>
-            <p>${player.age}</p>
+            <p>${player.age} anos</p>
         </div>`
             laterals?.insertAdjacentHTML('beforeend', lateralsCard)
         }
@@ -47,7 +47,7 @@ function renderPlayersCards(playersList: iPlayers[]) {
             let defendersCard = `<div class="player" id="player">
             <img src=${player.photo}>
             <p>${player.player}</p>
-            <p>${player.age}</p>
+            <p>${player.age} anos</p>
         </div>`
             defenders?.insertAdjacentHTML('beforeend', defendersCard)
         }
@@ -55,7 +55,7 @@ function renderPlayersCards(playersList: iPlayers[]) {
             let midfieldersCard = `<div class="player">
             <img src=${player.photo}>
             <p>${player.player}</p>
-            <p>${player.age}</p>
+            <p>${player.age} anos</p>
         </div>`
             midfielders?.insertAdjacentHTML('beforeend', midfieldersCard)
         }
@@ -63,7 +63,7 @@ function renderPlayersCards(playersList: iPlayers[]) {
             let attackersCard = `<div class="player">
             <img src=${player.photo}>
             <p>${player.player}</p>
-            <p>${player.age}</p>
+            <p>${player.age} anos</p>
         </div>`
             attackers?.insertAdjacentHTML('beforeend', attackersCard)
         }
@@ -71,6 +71,23 @@ function renderPlayersCards(playersList: iPlayers[]) {
 }
 
 //FILTRO POR IDADE
+const minimumAge = document.getElementById('minimumAge')
+const maximumAge = document.getElementById('maximumAge')
+
+async function filterAge(){
+    console.log('teste')
+    await fetch('https://apigenerator.dronahq.com/api/x5mONs4F/players')
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            data.forEach(player => {
+                
+            });
+        })
+}
+
+maximumAge.addEventListener('blur', filterAge)
 
 
 //CARROSSEL
