@@ -1,13 +1,25 @@
-const defRightArrow = document.getElementById('defenderRightArrow')
-const defLeftArrow = document.getElementById('defenderLeftArrow')
-const midRightArrow = document.getElementById('midfielderRightArrow')
-const midLeftArrow = document.getElementById('midfielderLeftArrow')
-const attRightArrow = document.getElementById('attackerRightArrow')
-const attLeftArrow = document.getElementById('attackerLeftArrow')
+let menu4button = document.querySelector('.icon') as HTMLElement
+let menu4Mobile = document.querySelector('.mobileMenu') as HTMLElement
+const defRightArrow = document.getElementById('defenderRightArrow') as HTMLElement
+const defLeftArrow = document.getElementById('defenderLeftArrow') as HTMLElement
+const midRightArrow = document.getElementById('midfielderRightArrow') as HTMLElement
+const midLeftArrow = document.getElementById('midfielderLeftArrow') as HTMLElement
+const attRightArrow = document.getElementById('attackerRightArrow') as HTMLElement
+const attLeftArrow = document.getElementById('attackerLeftArrow') as HTMLElement
 const goalkeeper : HTMLElement = document.getElementById('goalkeepers')
 const defender : HTMLElement = document.getElementById('defenders')
 const midfielder : HTMLElement = document.getElementById('midfielders')
 const attacker : HTMLElement = document.getElementById('attackers')
+
+// Menu Mobile
+
+menu4button.addEventListener('click', (e) => {
+    if(menu4Mobile.style.display === 'block') {
+        menu4Mobile.style.display = 'none'
+    }else{
+        menu4Mobile.style.display = 'block'
+    }
+})   
 
 // Arrows Function
 defRightArrow.addEventListener('click', (e) => {

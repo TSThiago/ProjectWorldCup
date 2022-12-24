@@ -1,3 +1,5 @@
+let menu2button = document.querySelector('.icon') as HTMLElement
+let menu2Mobile = document.querySelector('.mobileMenu') as HTMLElement
 let submitButton = document.getElementById('submit') as HTMLElement
 let nationalTeam = document.getElementById('nationalTeam') as HTMLInputElement
 let player = document.getElementById('name') as HTMLInputElement
@@ -46,3 +48,12 @@ function registerPlayer(): void {
         }
     })
 }
+
+menu2button.addEventListener('click', (e) => {
+    console.log('teste')
+    if(menu2Mobile.style.display === 'block') {
+        menu2Mobile.style.display = 'none'
+    }else{
+        menu2Mobile.style.display = 'block'
+    }
+})   

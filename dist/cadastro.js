@@ -1,3 +1,5 @@
+let menu2button = document.querySelector('.icon');
+let menu2Mobile = document.querySelector('.mobileMenu');
 let submitButton = document.getElementById('submit');
 let nationalTeam = document.getElementById('nationalTeam');
 let player = document.getElementById('name');
@@ -43,4 +45,13 @@ function registerPlayer() {
         }
     });
 }
+menu2button.addEventListener('click', (e) => {
+    console.log('teste');
+    if (menu2Mobile.style.display === 'block') {
+        menu2Mobile.style.display = 'none';
+    }
+    else {
+        menu2Mobile.style.display = 'block';
+    }
+});
 //# sourceMappingURL=cadastro.js.map
