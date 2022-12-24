@@ -44,7 +44,7 @@ function renderPlayersCards(playersList: iPlayers[]) {
             laterals?.insertAdjacentHTML('beforeend', lateralsCard)
         }
         if (player.position === 'Zagueiro' && player.nationalTeam === 'Brasil') {
-            let defendersCard = `<div class="player">
+            let defendersCard = `<div class="player" id="player">
             <img src=${player.photo}>
             <p>${player.player}</p>
             <p>${player.age}</p>
@@ -69,3 +69,118 @@ function renderPlayersCards(playersList: iPlayers[]) {
         }
     });
 }
+
+//FILTRO POR IDADE
+
+
+//CARROSSEL
+const arrowRightAttackers = document.getElementById('arrowRightAttackers')
+const arrowLeftAttackers = document.getElementById('arrowLeftAttackers')
+const attackersScroll = document.getElementById('attackers')
+
+let carouselAttackersScroll: number = 0
+
+function scrollAttackers(newCarouselScroll: number){
+    if(newCarouselScroll < 0){
+        return
+    }
+    attackersScroll.scroll({
+        top: 0,
+        left: newCarouselScroll,
+        behavior: 'smooth'
+    })
+    carouselAttackersScroll = newCarouselScroll
+}
+
+arrowRightAttackers.addEventListener('click', () => scrollAttackers(carouselAttackersScroll + 200))
+arrowLeftAttackers.addEventListener('click', () => scrollAttackers(carouselAttackersScroll - 200))
+
+
+const arrowLeftMidFielders = document.getElementById('arrowLeftMidfielders')
+const arrowRightMidFielders = document.getElementById('arrowRightMidfielders')
+const midfieldersScroll = document.getElementById('midfielders')
+
+let carouselMidfieldersScroll: number = 0
+
+function scrollMidfielders(newCarouselScroll: number){
+    if(newCarouselScroll < 0){
+        return
+    }
+    midfieldersScroll.scroll({
+        top: 0,
+        left: newCarouselScroll,
+        behavior: 'smooth'
+    })
+    carouselMidfieldersScroll = newCarouselScroll
+}
+
+arrowLeftMidFielders.addEventListener('click', () => scrollMidfielders(carouselMidfieldersScroll - 200))
+arrowRightMidFielders.addEventListener('click', () => scrollMidfielders(carouselMidfieldersScroll + 200))
+
+
+const arrowLeftDefenders = document.getElementById('arrowLeftDefenders')
+const arrowRightDefenders = document.getElementById('arrowRightDefenders')
+const defendersScroll = document.getElementById('defenders')
+
+let carouselDefendersScroll: number = 0
+
+
+function scrollDefenders(newCarouselScroll: number){
+    if(newCarouselScroll < 0){
+        return
+    }
+    defendersScroll.scroll({
+        top: 0,
+        left: newCarouselScroll,
+        behavior: 'smooth'
+    })
+    carouselDefendersScroll = newCarouselScroll
+}
+
+arrowLeftDefenders.addEventListener('click', () => scrollDefenders(carouselDefendersScroll - 200))
+arrowRightDefenders.addEventListener('click', () => scrollDefenders(carouselDefendersScroll + 200))
+
+
+const arrowLeftLaterals = document.getElementById('arrowLeftLaterals')
+const arrowRightLaterals = document.getElementById('arrowRightLaterals')
+const lateralsScroll = document.getElementById('laterals')
+
+let carouselLateralsScroll: number = 0
+
+function scrollLaterals(newCarouselScroll: number){
+    if(newCarouselScroll < 0){
+        return
+    }
+    lateralsScroll.scroll({
+        top: 0,
+        left: newCarouselScroll,
+        behavior: 'smooth'
+    })
+    carouselLateralsScroll = newCarouselScroll
+}
+
+arrowLeftLaterals.addEventListener('click', () => scrollLaterals(carouselLateralsScroll - 200))
+arrowRightLaterals.addEventListener('click', () => scrollLaterals(carouselLateralsScroll + 200))
+
+
+const arrowLeftGoalkeepers = document.getElementById('arrowLeftGoalkeepers')
+const arrowRightGoalkeepers = document.getElementById('arrowRightGoalkeepers')
+const goalkeepersScroll = document.getElementById('goalkeepers')
+
+let carouselGoalkeepersScroll: number = 0
+
+function scrollGoalkeepers(newCarouselScroll: number){
+    if(newCarouselScroll < 0){
+        return
+    }
+    goalkeepersScroll.scroll({
+        top: 0,
+        left: newCarouselScroll,
+        behavior: 'smooth'
+    })
+    carouselGoalkeepersScroll = newCarouselScroll
+}
+
+arrowLeftGoalkeepers.addEventListener('click', () => scrollGoalkeepers(carouselGoalkeepersScroll - 200))
+arrowRightGoalkeepers.addEventListener('click', () => scrollGoalkeepers(carouselGoalkeepersScroll + 200))
+
