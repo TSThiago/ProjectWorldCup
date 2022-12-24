@@ -19,7 +19,7 @@ function renderPlayersCards(playersList) {
             let attackersCard = `<div class="player">
                 <img src=${player.photo}>
                 <p>${player.player}</p>
-                <p>${player.age}</p>
+                <p>${player.age} anos</p>
             </div>`;
             goalkeepers === null || goalkeepers === void 0 ? void 0 : goalkeepers.insertAdjacentHTML('beforeend', attackersCard);
         }
@@ -27,7 +27,7 @@ function renderPlayersCards(playersList) {
             let lateralsCard = `<div class="player">
             <img src=${player.photo}>
             <p>${player.player}</p>
-            <p>${player.age}</p>
+            <p>${player.age} anos</p>
         </div>`;
             laterals === null || laterals === void 0 ? void 0 : laterals.insertAdjacentHTML('beforeend', lateralsCard);
         }
@@ -35,7 +35,7 @@ function renderPlayersCards(playersList) {
             let defendersCard = `<div class="player" id="player">
             <img src=${player.photo}>
             <p>${player.player}</p>
-            <p>${player.age}</p>
+            <p>${player.age} anos</p>
         </div>`;
             defenders === null || defenders === void 0 ? void 0 : defenders.insertAdjacentHTML('beforeend', defendersCard);
         }
@@ -43,7 +43,7 @@ function renderPlayersCards(playersList) {
             let midfieldersCard = `<div class="player">
             <img src=${player.photo}>
             <p>${player.player}</p>
-            <p>${player.age}</p>
+            <p>${player.age} anos</p>
         </div>`;
             midfielders === null || midfielders === void 0 ? void 0 : midfielders.insertAdjacentHTML('beforeend', midfieldersCard);
         }
@@ -51,12 +51,27 @@ function renderPlayersCards(playersList) {
             let attackersCard = `<div class="player">
             <img src=${player.photo}>
             <p>${player.player}</p>
-            <p>${player.age}</p>
+            <p>${player.age} anos</p>
         </div>`;
             attackers === null || attackers === void 0 ? void 0 : attackers.insertAdjacentHTML('beforeend', attackersCard);
         }
     });
 }
+//FILTRO POR IDADE
+const minimumAge = document.getElementById('minimumAge');
+const maximumAge = document.getElementById('maximumAge');
+async function filterAge() {
+    console.log('teste');
+    await fetch('https://apigenerator.dronahq.com/api/x5mONs4F/players')
+        .then(function (response) {
+        return response.json();
+    })
+        .then(function (data) {
+        data.forEach(player => {
+        });
+    });
+}
+maximumAge.addEventListener('blur', filterAge);
 //CARROSSEL
 const arrowRightAttackers = document.getElementById('arrowRightAttackers');
 const arrowLeftAttackers = document.getElementById('arrowLeftAttackers');
