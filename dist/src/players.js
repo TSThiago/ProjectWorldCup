@@ -32,7 +32,7 @@ function renderPlayersCards(playersList) {
             laterals === null || laterals === void 0 ? void 0 : laterals.insertAdjacentHTML('beforeend', lateralsCard);
         }
         if (player.position === 'Zagueiro' && player.nationalTeam === 'Brasil') {
-            let defendersCard = `<div class="player" id="player">
+            let defendersCard = `<div class="player">
             <img src=${player.photo}>
             <p>${player.player}</p>
             <p>${player.age} anos</p>
@@ -60,18 +60,25 @@ function renderPlayersCards(playersList) {
 //FILTRO POR IDADE
 const minimumAge = document.getElementById('minimumAge');
 const maximumAge = document.getElementById('maximumAge');
-async function filterAge() {
-    console.log('teste');
+async function filterAge(minimumAge, maximumAge) {
+    const players = document.querySelectorAll('.player');
     await fetch('https://apigenerator.dronahq.com/api/x5mONs4F/players')
         .then(function (response) {
         return response.json();
     })
         .then(function (data) {
-        data.forEach(player => {
+        const filteredPlayers = data.filter(player => player.age >= minimumAge && player.age <= maximumAge);
+        players.forEach(player => {
+            player.remove();
         });
+        renderPlayersCards(filteredPlayers);
     });
 }
-maximumAge.addEventListener('blur', filterAge);
+maximumAge.addEventListener('blur', () => {
+    const minimumAgeValue = minimumAge.value;
+    const maximumAgeValue = maximumAge.value;
+    filterAge(minimumAgeValue, maximumAgeValue);
+});
 //CARROSSEL
 const arrowRightAttackers = document.getElementById('arrowRightAttackers');
 const arrowLeftAttackers = document.getElementById('arrowLeftAttackers');
