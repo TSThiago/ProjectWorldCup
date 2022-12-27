@@ -52,6 +52,14 @@ html {
     color: white;
 }
 
+.mobile-menu-icon {
+    display:none
+  }
+  
+  .mobileMenu {
+    display:none
+  }
+
 .menu{
     display: flex;
     justify-content: space-around;
@@ -123,4 +131,33 @@ html {
 .scoreboardHidden{
     display: none;
     margin-top: 15px;
+}
+
+@media screen and (max-width:800px) {
+    .navPages{
+      display:none
+    }
+  
+    .mobile-menu-icon{
+      display: block;
+      margin-right: 2vw;
+    }
+  
+    .mobile-menu-icon img {
+      height: 30px;
+      cursor: pointer;
+    }
+  
+    .mobileMenu a{
+      background-color: #009c3b;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      text-decoration: none;
+      color: white;
+    }
+  
+    .mobileMenu .open {
+      display:block;
+    }
 }

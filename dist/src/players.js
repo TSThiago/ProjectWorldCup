@@ -1,3 +1,14 @@
+let menuButtonBarPlayers = document.querySelector('.icon');
+let menuMobileBarPlayers = document.querySelector('.mobileMenu');
+menuButtonBarPlayers.addEventListener('click', (e) => {
+    console.log('teste');
+    if (menuMobileBarPlayers.style.display === 'block') {
+        menuMobileBarPlayers.style.display = 'none';
+    }
+    else {
+        menuMobileBarPlayers.style.display = 'block';
+    }
+});
 async function playersApi() {
     await fetch('https://apigenerator.dronahq.com/api/x5mONs4F/players')
         .then(function (response) {

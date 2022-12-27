@@ -1,3 +1,15 @@
+let menuButtonBar = document.querySelector('.icon') as HTMLElement
+let menuMobileBar = document.querySelector('.mobileMenu') as HTMLElement
+
+    menuButtonBar.addEventListener('click', (e) => {
+        console.log('teste')
+        if(menuMobileBar.style.display === 'block') {
+            menuMobileBar.style.display = 'none'
+        }else{
+            menuMobileBar.style.display = 'block'
+        }
+    })    
+
 // BOTÃO DE VER MAIS E VER MENOS
 
 const buttonMore: HTMLElement | null = document.getElementById('buttonMore')

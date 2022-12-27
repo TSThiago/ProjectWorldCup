@@ -1,3 +1,15 @@
+let menuButtonBarPlayers = document.querySelector('.icon') as HTMLElement
+let menuMobileBarPlayers = document.querySelector('.mobileMenu') as HTMLElement
+
+menuButtonBarPlayers.addEventListener('click', (e) => {
+        console.log('teste')
+        if(menuMobileBarPlayers.style.display === 'block') {
+            menuMobileBarPlayers.style.display = 'none'
+        }else{
+            menuMobileBarPlayers.style.display = 'block'
+        }
+    })    
+
 interface iPlayers {
     nationalTeam: string,
     player: string,
