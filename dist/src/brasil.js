@@ -1,3 +1,14 @@
+let menuButtonBar = document.querySelector('.icon');
+let menuMobileBar = document.querySelector('.mobileMenu');
+menuButtonBar.addEventListener('click', (e) => {
+    console.log('teste');
+    if (menuMobileBar.style.display === 'block') {
+        menuMobileBar.style.display = 'none';
+    }
+    else {
+        menuMobileBar.style.display = 'block';
+    }
+});
 // BOTÃO DE VER MAIS E VER MENOS
 const buttonMore = document.getElementById('buttonMore');
 const sectionQualifying = document.getElementById('qualifying');

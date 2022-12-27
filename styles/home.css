@@ -139,4 +139,8 @@ html {
     place-content: center;
     width: 12vw;
   }
+
+  .content p{
+    font-size: small;
+  }
 }
