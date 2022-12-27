@@ -77,10 +77,30 @@ body {
     color: white;
 }
 
+/* Filter Section */
 
+.filter {
+    display: grid;
+    place-content: center;
+    margin: 2vh auto;
+    width:90vw;
+    height: 20vh;
+}
+
+form{
+    display: grid;
+    place-content: center;
+    border-radius: 1em;
+    width:15vw;
+    height: 20vh;
+    background-color: #fcf43e;
+}
+
+input {
+    margin-bottom: 2vh;
+}
 
 /* Players Section*/
-
 
 .players {
     margin: 2vh auto 0 auto;
