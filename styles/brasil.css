@@ -160,4 +160,25 @@ html {
     .mobileMenu .open {
       display:block;
     }
+
+    .menuButton, .buttonMore{
+        width: 20vw;
+    }
+
+    .titleQualifying{
+        font-size: medium;
+    }
+
+    .scoreboard{
+        width: 20vw;
+    }
+
+    .menu{
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .countryMenu{
+        flex-direction: column;
+    }
 }
