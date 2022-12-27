@@ -22,6 +22,7 @@ menu4button.addEventListener('click', (e) => {
 })   
 
 // Arrows Function
+
 defRightArrow.addEventListener('click', (e) => {
     defender.scrollLeft += 90
 })
@@ -46,7 +47,37 @@ attLeftArrow.addEventListener('click', (e) => {
     attacker.scrollLeft -= 90
 })
 
+//  Filter Function
+
+let minAge = document.getElementById('minAge') as HTMLInputElement
+let maxAge = document.getElementById('maxAge') as HTMLInputElement
+
+async function filterPlayer(minAge : number, maxAge : number){
+    let players : NodeListOf<Element> = document.querySelectorAll('.player')
+    await fetch('https://apigenerator.dronahq.com/api/x5mONs4F/players')
+        .then(function (players) {
+            return players.json();
+        })
+    .then(function (data) {
+        return getNationalTeamPlayers('Argentina', data)
+    }).then(function(argentinaPlayers){
+        let filteredPlayers = argentinaPlayers.filter(player => player.age >= minAge && player.age <= maxAge)
+        players.forEach(player => {
+            player.remove()
+        });
+        renderPlayers(filteredPlayers)
+    })
+}
+
+maxAge.addEventListener('blur', () => {
+    const minAgeValue : number = parseInt(minAge.value)
+    const maxAgeValue : number = parseInt(maxAge.value)
+    filterPlayer(minAgeValue, maxAgeValue)
+})
+
+
 // API Function
+
 class Player {
     nationalTeam: string
     player: string

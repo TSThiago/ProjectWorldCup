@@ -38,6 +38,30 @@ attRightArrow.addEventListener('click', (e) => {
 attLeftArrow.addEventListener('click', (e) => {
     attacker.scrollLeft -= 90;
 });
+//  Filter Function
+let minAge = document.getElementById('minAge');
+let maxAge = document.getElementById('maxAge');
+async function filterPlayer(minAge, maxAge) {
+    let players = document.querySelectorAll('.player');
+    await fetch('https://apigenerator.dronahq.com/api/x5mONs4F/players')
+        .then(function (players) {
+        return players.json();
+    })
+        .then(function (data) {
+        return getNationalTeamPlayers('Argentina', data);
+    }).then(function (argentinaPlayers) {
+        let filteredPlayers = argentinaPlayers.filter(player => player.age >= minAge && player.age <= maxAge);
+        players.forEach(player => {
+            player.remove();
+        });
+        renderPlayers(filteredPlayers);
+    });
+}
+maxAge.addEventListener('blur', () => {
+    const minAgeValue = parseInt(minAge.value);
+    const maxAgeValue = parseInt(maxAge.value);
+    filterPlayer(minAgeValue, maxAgeValue);
+});
 // API Function
 class Player {
 }
