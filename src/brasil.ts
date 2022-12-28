@@ -1,14 +1,14 @@
 let menuButtonBar = document.querySelector('.icon') as HTMLElement
 let menuMobileBar = document.querySelector('.mobileMenu') as HTMLElement
 
-    menuButtonBar.addEventListener('click', (e) => {
-        console.log('teste')
-        if(menuMobileBar.style.display === 'block') {
-            menuMobileBar.style.display = 'none'
-        }else{
-            menuMobileBar.style.display = 'block'
-        }
-    })    
+menuButtonBar.addEventListener('click', (e) => {
+    console.log('teste')
+    if (menuMobileBar.style.display === 'block') {
+        menuMobileBar.style.display = 'none'
+    } else {
+        menuMobileBar.style.display = 'block'
+    }
+})
 
 // BOTÃO DE VER MAIS E VER MENOS
 
@@ -182,31 +182,3 @@ async function getLastGame(country: string) {
 }
 
 getLastGame('Brasil')
-
-// async function gamesApi() {
-//     await fetch('https://apigenerator.dronahq.com/api/zs9PYAhn/jogos')
-//         .then(function (response) {
-//             return response.json();
-//         })
-//         .then(function (data) {
-//             renderGamesCards(data)
-//         })
-// }
-
-// gamesApi()
-
-// const divGames: HTMLElement | null = document.getElementById('games')
-
-// function renderGamesCards(gamesList: iGames[]){
-//     gamesList.forEach(game => {
-//         if(game.fase === 'Classificatória'){
-//             if(game.timeA === 'Brasil' || game.timeB === 'Brasil'){
-//                 let gamesCard = `<div class="scoreboard"> 
-//                 <p id="gameTeams">${game.timeA} x ${game.timeB}</p><br>
-//                 <p id="gameScore">${game.gols.timeA} x ${game.gols.TimeB}</p>
-//             </div>`
-//             divGames?.insertAdjacentHTML('beforeend', gamesCard)
-//             }
-//         }
-//     });
-// }
