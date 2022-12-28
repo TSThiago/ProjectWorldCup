@@ -93,7 +93,7 @@ async function filterAge(minimumAge, maximumAge){
             return response.json();
         })
     .then(function (data) {
-            const filteredPlayers = data.filter(player => player.age >= minimumAge && player.age <= maximumAge)
+            const filteredPlayers: iPlayers[] = data.filter(player => player.age >= minimumAge && player.age <= maximumAge)
             players.forEach(player => {
                 player.remove()
             });
@@ -102,16 +102,16 @@ async function filterAge(minimumAge, maximumAge){
 }
 
 maximumAge.addEventListener('blur', () => {
-    const minimumAgeValue = minimumAge.value
-    const maximumAgeValue = maximumAge.value
+    const minimumAgeValue: string = minimumAge.value
+    const maximumAgeValue: string = maximumAge.value
     filterAge(minimumAgeValue, maximumAgeValue)
 })
 
 
 //CARROSSEL
-const arrowRightAttackers = document.getElementById('arrowRightAttackers')
-const arrowLeftAttackers = document.getElementById('arrowLeftAttackers')
-const attackersScroll = document.getElementById('attackers')
+const arrowRightAttackers: HTMLElement | null = document.getElementById('arrowRightAttackers')
+const arrowLeftAttackers: HTMLElement | null = document.getElementById('arrowLeftAttackers')
+const attackersScroll: HTMLElement | null = document.getElementById('attackers')
 
 let carouselAttackersScroll: number = 0
 
@@ -131,9 +131,9 @@ arrowRightAttackers.addEventListener('click', () => scrollAttackers(carouselAtta
 arrowLeftAttackers.addEventListener('click', () => scrollAttackers(carouselAttackersScroll - 200))
 
 
-const arrowLeftMidFielders = document.getElementById('arrowLeftMidfielders')
-const arrowRightMidFielders = document.getElementById('arrowRightMidfielders')
-const midfieldersScroll = document.getElementById('midfielders')
+const arrowLeftMidFielders: HTMLElement | null = document.getElementById('arrowLeftMidfielders')
+const arrowRightMidFielders: HTMLElement | null = document.getElementById('arrowRightMidfielders')
+const midfieldersScroll: HTMLElement | null = document.getElementById('midfielders')
 
 let carouselMidfieldersScroll: number = 0
 
@@ -153,9 +153,9 @@ arrowLeftMidFielders.addEventListener('click', () => scrollMidfielders(carouselM
 arrowRightMidFielders.addEventListener('click', () => scrollMidfielders(carouselMidfieldersScroll + 200))
 
 
-const arrowLeftDefenders = document.getElementById('arrowLeftDefenders')
-const arrowRightDefenders = document.getElementById('arrowRightDefenders')
-const defendersScroll = document.getElementById('defenders')
+const arrowLeftDefenders: HTMLElement | null = document.getElementById('arrowLeftDefenders')
+const arrowRightDefenders: HTMLElement | null = document.getElementById('arrowRightDefenders')
+const defendersScroll: HTMLElement | null = document.getElementById('defenders')
 
 let carouselDefendersScroll: number = 0
 
@@ -176,9 +176,9 @@ arrowLeftDefenders.addEventListener('click', () => scrollDefenders(carouselDefen
 arrowRightDefenders.addEventListener('click', () => scrollDefenders(carouselDefendersScroll + 200))
 
 
-const arrowLeftLaterals = document.getElementById('arrowLeftLaterals')
-const arrowRightLaterals = document.getElementById('arrowRightLaterals')
-const lateralsScroll = document.getElementById('laterals')
+const arrowLeftLaterals: HTMLElement | null = document.getElementById('arrowLeftLaterals')
+const arrowRightLaterals: HTMLElement | null = document.getElementById('arrowRightLaterals')
+const lateralsScroll: HTMLElement | null = document.getElementById('laterals')
 
 let carouselLateralsScroll: number = 0
 
@@ -198,9 +198,9 @@ arrowLeftLaterals.addEventListener('click', () => scrollLaterals(carouselLateral
 arrowRightLaterals.addEventListener('click', () => scrollLaterals(carouselLateralsScroll + 200))
 
 
-const arrowLeftGoalkeepers = document.getElementById('arrowLeftGoalkeepers')
-const arrowRightGoalkeepers = document.getElementById('arrowRightGoalkeepers')
-const goalkeepersScroll = document.getElementById('goalkeepers')
+const arrowLeftGoalkeepers: HTMLElement | null = document.getElementById('arrowLeftGoalkeepers')
+const arrowRightGoalkeepers: HTMLElement | null = document.getElementById('arrowRightGoalkeepers')
+const goalkeepersScroll: HTMLElement | null = document.getElementById('goalkeepers')
 
 let carouselGoalkeepersScroll: number = 0
 
