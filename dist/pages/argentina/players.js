@@ -1,6 +1,6 @@
 const menu4button = document.querySelector('#menuButton');
 const menu4Mobile = document.querySelector('.mobileMenu');
-const closeMenuButton = document.getElementById('closeMenuButton');
+const navBar = document.querySelector('.navBar');
 const defRightArrow = document.getElementById('defenderRightArrow');
 const defLeftArrow = document.getElementById('defenderLeftArrow');
 const midRightArrow = document.getElementById('midfielderRightArrow');
@@ -12,13 +12,15 @@ const defender = document.getElementById('defenders');
 const midfielder = document.getElementById('midfielders');
 const attacker = document.getElementById('attackers');
 // Menu Mobile
-closeMenuButton.addEventListener('click', (e) => {
-    menu4Mobile.style.display = 'none';
-    menu4button.style.display = 'block';
-});
 menu4button.addEventListener('click', (e) => {
-    menu4Mobile.style.display = 'block';
-    menu4button.style.display = 'none';
+    if (menu4Mobile.style.display === 'block') {
+        menu4Mobile.style.display = 'none';
+    }
+    else {
+        menu4Mobile.style.display = 'block';
+        navBar.style.height = '30vh';
+        menu4button.style.display = 'none';
+    }
 });
 // Arrows Function
 defRightArrow.addEventListener('click', (e) => {

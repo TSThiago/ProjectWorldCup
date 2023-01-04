@@ -47,6 +47,7 @@ body {
 /* Mobile Menu */
 
 #menuButton {
+    margin: 0 40vw 20vw 0;
     background-color: #75a9db
 }
 
@@ -56,15 +57,10 @@ body {
 
 .mobileMenu {
     display: none;
-    width: 20vw;
+    height: 20vh;
+    width: 100%;
 }
 
-#closeMenuButton {
-    cursor: pointer;
-    height: 25px;
-    width: 25px;
-    background-color: #75a9db
-}
 
 /* Nav Bar */
 
@@ -74,6 +70,7 @@ body {
     background-color: #75a9db;
     height: 20vh;
     align-items: center;
+    overflow: hidden;
 }
 
 .navImage {
@@ -201,6 +198,10 @@ input {
 
 
 @media screen and (max-width:800px) {
+    .navBar{
+        display: block
+    }
+
     .player {
         height: 200px;
         width: 200px;
@@ -229,7 +230,7 @@ input {
     }
 
     .mobile-menu-icon {
-        display: block;
+        display: flex;
         margin-right: 2vw;
     }
 
