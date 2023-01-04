@@ -26,53 +26,42 @@
         <a href="pages/brasil/index.html">Jogos</a>
         <a href="cadastro.html">Cadastrar</a>
     </div>
-    <section class="menu">
-        <section>
-            <a href="../argentina/index.html"><button class="menuButton">Anterior</button></a>
+    <main id="main">
+        <section class="menu">
+            <section>
+                <a href="../argentina/index.html"><button class="menuButton">Anterior</button></a>
+            </section>
+            <section class="countryMenu">
+                <img src="../../images/brasil.jpg" alt="bandeira do Brasil" width="200">
+                <div class="titleAndButton">
+                    <span>Brasil</span>
+                    <a href="players.html"><button class="menuButton">Ver Jogadores</button></a>
+                </div>
+            </section>
+            <section>
+                <a href="../argentina/index.html"><button class="menuButton">Próximo</button></a>
+            </section>
         </section>
-        <section class="countryMenu">
-            <img src="../../images/brasil.jpg" alt="bandeira do Brasil" width="200">
-            <div class="titleAndButton">
-                <span>Brasil</span>
-                <a href="players.html"><button class="menuButton">Ver Jogadores</button></a>
+        <section class="qualifying" id="qualifying">
+            <div class="scoreboard">
+                <p id="teamFirstClassification"></p><br>
+                <p id="scoreFirstClassification"></p>
+            </div>
+            <div>
+                <h1 class="titleQualifying">Classificatórias</h1>
+                <button class="buttonMore" id="buttonMore">Ver Mais</button>
+                <div class="scoreboard scoreboardHidden" id="scoreboardHidden">
+                    <p id="teamThirdClassification"></p><br>
+                    <p id="scoreThirdClassification"></p>
+                </div>
+            </div>
+            <div class="scoreboard">
+                <p id="teamSecondClassification"></p><br>
+                <p id="scoreSecondClassification"></p>
             </div>
         </section>
-        <section>
-            <a href="../argentina/index.html"><button class="menuButton">Próximo</button></a>
-        </section>
-    </section>
-    <section class="qualifying" id="qualifying">
-        <div class="scoreboard"> 
-            <p id="teamFirstClassification"></p><br>
-            <p id="scoreFirstClassification"></p>
-        </div>
-        <div>
-            <h1 class="titleQualifying">Classificatórias</h1>
-            <button class="buttonMore" id="buttonMore">Ver Mais</button>
-            <div class="scoreboard scoreboardHidden" id="scoreboardHidden">
-                <p id="teamThirdClassification"></p><br>
-                <p id="scoreThirdClassification"></p>
-            </div>
-        </div>
-        <div class="scoreboard">
-            <p id="teamSecondClassification"></p><br>
-            <p id="scoreSecondClassification"></p>
-        </div>
-    </section>
-    <section class="penultimateGame">
-        <h1 class="titleQualifying">Oitavas de final</h1>
-        <div class="scoreboard"> 
-            <p id="teamPenultimateGame"></p><br>
-            <p id="scorePenultimateGame"></p>
-        </div>
-    </section>
-    <section class="lastGame">
-        <h1 class="titleQualifying">Quartas de final</h1>
-        <div class="scoreboard"> 
-            <p id="teamLastGame"></p><br>
-            <p id="scoreLastGame"></p>
-        </div>
-    </section>
+    </main>
 </body>
 <script src="../../dist/src/brasil.js"></script>
+<script src="../../dist/home.js"></script>
 </html>

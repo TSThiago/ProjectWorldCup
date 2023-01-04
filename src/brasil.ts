@@ -1,15 +1,3 @@
-let menuButtonBar = document.querySelector('.icon') as HTMLElement
-let menuMobileBar = document.querySelector('.mobileMenu') as HTMLElement
-
-menuButtonBar.addEventListener('click', (e) => {
-    console.log('teste')
-    if (menuMobileBar.style.display === 'block') {
-        menuMobileBar.style.display = 'none'
-    } else {
-        menuMobileBar.style.display = 'block'
-    }
-})
-
 // BOTÃO DE VER MAIS E VER MENOS
 
 const buttonMore: HTMLElement | null = document.getElementById('buttonMore')
@@ -64,7 +52,7 @@ interface iGames {
 }
 
 async function getQualifyingGames(country: string) {
-    await fetch('https://apigenerator.dronahq.com/api/zs9PYAhn/jogos')
+    fetch('https://apigenerator.dronahq.com/api/zs9PYAhn/jogos')
         .then(function (response) {
             return response.json()
         })
@@ -113,72 +101,45 @@ async function getQualifyingGames(country: string) {
 
 getQualifyingGames('Brasil')
 
-
-async function getPenultimateGame(country: string) {
-    await fetch('https://apigenerator.dronahq.com/api/zs9PYAhn/jogos')
+async function gamesApi() {
+    fetch('https://apigenerator.dronahq.com/api/zs9PYAhn/jogos')
         .then(function (response) {
-            return response.json()
+            return response.json();
         })
-        .then(function (data: iGames[]) {
-            const teamPenultimateGame: HTMLElement | null = document.getElementById('teamPenultimateGame')
-            const scorePenultimateGame: HTMLElement | null = document.getElementById('scorePenultimateGame')
-
-            let timeAPenultimateGame: string = ''
-            let timeBPenultimateGame: string = ''
-            let golTimeAPenultimateGame: number = 0
-            let golTimeBPenultimateGame: number = 0
-
-            data.forEach(game => {
-                if (game.fase === 'Oitavas-Final') {
-                    if (game.timeA === country || game.timeB === country) {
-                        timeAPenultimateGame = game.timeA
-                        timeBPenultimateGame = game.timeB
-                        golTimeAPenultimateGame = game.gols.timeA
-                        golTimeBPenultimateGame = game.gols.TimeB
-                    }
-                }
-            });
-
-            if (teamPenultimateGame && scorePenultimateGame !== null) {
-                teamPenultimateGame.innerHTML = `${timeAPenultimateGame} x ${timeBPenultimateGame}`
-                scorePenultimateGame.innerHTML = `${golTimeAPenultimateGame} x ${golTimeBPenultimateGame}`
-            }
+        .then(function (data) {
+            renderGamesCards(data)
         })
 }
 
-getPenultimateGame('Brasil')
+gamesApi()
 
+function renderGamesCards(gamesList: iGames[]) {
+    const main: HTMLElement | null = document.getElementById('main')
 
-async function getLastGame(country: string) {
-    await fetch('https://apigenerator.dronahq.com/api/zs9PYAhn/jogos')
-        .then(function (response) {
-            return response.json()
-        })
-        .then(function (data: iGames[]) {
-            const teamLastGame: HTMLElement | null = document.getElementById('teamLastGame')
-            const scoreLastGame: HTMLElement | null = document.getElementById('scoreLastGame')
-
-            let timeALastGame: string = ''
-            let timeBLastGame: string = ''
-            let golTimeALastGame: number = 0
-            let golTimeBLastGame: number = 0
-
-            data.forEach(game => {
-                if (game.fase === 'Quartas-Final') {
-                    if (game.timeA === country || game.timeB === country) {
-                        timeALastGame = game.timeA
-                        timeBLastGame = game.timeB
-                        golTimeALastGame = game.gols.timeA
-                        golTimeBLastGame = game.gols.TimeB
-                    }
-                }
-            });
-
-            if (teamLastGame && scoreLastGame !== null) {
-                teamLastGame.innerHTML = `${timeALastGame} x ${timeBLastGame}`
-                scoreLastGame.innerHTML = `${golTimeALastGame} x ${golTimeBLastGame}`
+    gamesList.forEach(game => {
+        if (game.fase === 'Oitavas-Final') {
+            if (game.timeA === 'Brasil' || game.timeB === 'Brasil') {
+                let gameCard = `<section class="penultimateGame">
+                <h1 class="titleQualifying">Oitavas de final</h1>
+                <div class="scoreboard">
+                    <p>${game.timeA} x ${game.timeB}</p><br>
+                    <p>${game.gols.timeA} x ${game.gols.TimeB}</p>
+                </div>
+            </section>`
+                main?.insertAdjacentHTML('beforeend', gameCard)
             }
-        })
+        }
+        if (game.fase === 'Quartas-Final'){
+            if (game.timeA === 'Brasil' || game.timeB === 'Brasil'){
+                let gameCard = `<section class="lastGame">
+                <h1 class="titleQualifying">Quartas de Final</h1>
+                <div class="scoreboard">
+                    <p>${game.timeA} x ${game.timeB}</p><br>
+                    <p>${game.gols.timeA} x ${game.gols.TimeB}</p>
+                </div>
+            </section>`
+                main?.insertAdjacentHTML('beforeend', gameCard)
+            }
+        }
+    });
 }
-
-getLastGame('Brasil')
