@@ -3,10 +3,7 @@ let menu3Mobile = document.querySelector('.mobileMenu') as HTMLElement
 const button = document.getElementById('groupButton') as HTMLElement
 const groupStageBox = document.getElementById('groupStage') as HTMLElement
 const groupBox = document.getElementById('groupBox') as HTMLElement
-const lasts16: HTMLElement = document.getElementById('last16')
-const quarter: HTMLElement = document.getElementById('quarterFinals')
-const semi: HTMLElement = document.getElementById('semiFinals')
-const final: HTMLElement = document.getElementById('final')
+const knockoutBox: HTMLElement = document.getElementById('knockoutBox')
 
 // Menu Mobile
 
@@ -45,7 +42,7 @@ getAllMatches()
         return getNationalTeamMatches("Argentina", data)
     })
     .then(function (matches) {
-        renderMatches(matches)
+        renderMatches(matches, "Argentina")
     })
 
 ShowMoreMatches()
@@ -80,10 +77,10 @@ async function getNationalTeamMatches(nationalTeam: string, data: any): Promise<
     return arrayNationalTeamMatches
 }
 
-function renderMatches(matches: Match[]) {
+function renderMatches(matches: Match[], nationalTeam : string) {
     let divCreated : boolean = false
     matches.forEach(match => {
-        if ((match.timeA === 'Argentina' && match.fase === 'Classificatória') || (match.timeB === 'Argentina' && match.fase === 'Classificatória')) {
+        if ((match.timeA === nationalTeam && match.fase === 'Classificatória') || (match.timeB === nationalTeam && match.fase === 'Classificatória')) {
             let stageBox = 
             `<div class="score">
                 <p>${match.timeA} X ${match.timeB}</p>
@@ -91,8 +88,8 @@ function renderMatches(matches: Match[]) {
             </div>`
             groupBox?.insertAdjacentHTML('beforeend', stageBox)
         }
-        if ((match.timeA === 'Argentina' && match.fase === 'Oitavas-Final') || (match.timeB === 'Argentina' && match.fase === 'Oitavas-Final')) {
-            let last16Box =
+        if ((match.timeA === nationalTeam && match.fase != 'Classificatória') || (match.timeB === nationalTeam && match.fase != 'Classificatória')) {
+            let gameBox =
                 `<div class="box">
             <h3>${match.fase}</h3>
             <div class="score">
@@ -100,40 +97,7 @@ function renderMatches(matches: Match[]) {
                 <p>${match.gols.timeA} X ${match.gols.TimeB}</p>
             </div>
             </div>`
-            lasts16?.insertAdjacentHTML('beforeend', last16Box)
-        }
-        if ((match.timeA === 'Argentina' && match.fase === 'Quartas-Final') || (match.timeB === 'Argentina' && match.fase === 'Quartas-Final')) {
-            let quarterBox =
-                `<div class="box">
-            <h3>${match.fase}</h3>
-            <div class="score">
-                <p>${match.timeA} X ${match.timeB}</p>
-                <p>${match.gols.timeA} X ${match.gols.TimeB}</p>
-            </div>
-            </div>`
-            quarter?.insertAdjacentHTML('beforeend', quarterBox)
-        }
-        if ((match.timeA === 'Argentina' && match.fase === 'Semi-Final') || (match.timeB === 'Argentina' && match.fase === 'Semi-Final')) {
-            let semiBox =
-                `<div class="box">
-            <h3>${match.fase}</h3>
-            <div class="score">
-                <p>${match.timeA} X ${match.timeB}</p>
-                <p>${match.gols.timeA} X ${match.gols.TimeB}</p>
-            </div>
-            </div>`
-            semi?.insertAdjacentHTML('beforeend', semiBox)
-        }
-        if ((match.timeA === 'Argentina' && match.fase === 'Final') || (match.timeB === 'Argentina' && match.fase === 'Final')) {
-            let finalBox =
-                `<div class="box">
-            <h3>${match.fase}</h3>
-            <div class="score">
-                <p>${match.timeA} X ${match.timeB}</p>
-                <p>${match.gols.timeA} X ${match.gols.TimeB}</p>
-            </div>
-            </div>`
-            final?.insertAdjacentHTML('beforeend', finalBox)
+            knockoutBox?.insertAdjacentHTML('beforeend', gameBox)
         }
     })
 }

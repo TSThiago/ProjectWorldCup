@@ -1,5 +1,6 @@
-let menu4button = document.querySelector('.icon') as HTMLElement
-let menu4Mobile = document.querySelector('.mobileMenu') as HTMLElement
+const menu4button = document.querySelector('#menuButton') as HTMLElement
+const menu4Mobile = document.querySelector('.mobileMenu') as HTMLElement
+const closeMenuButton = document.getElementById('closeMenuButton')
 const defRightArrow = document.getElementById('defenderRightArrow') as HTMLElement
 const defLeftArrow = document.getElementById('defenderLeftArrow') as HTMLElement
 const midRightArrow = document.getElementById('midfielderRightArrow') as HTMLElement
@@ -13,12 +14,15 @@ const attacker : HTMLElement = document.getElementById('attackers')
 
 // Menu Mobile
 
+closeMenuButton.addEventListener('click', (e) => {
+    menu4Mobile.style.display = 'none'
+    menu4button.style.display = 'block'
+})
+
+
 menu4button.addEventListener('click', (e) => {
-    if(menu4Mobile.style.display === 'block') {
-        menu4Mobile.style.display = 'none'
-    }else{
-        menu4Mobile.style.display = 'block'
-    }
+    menu4Mobile.style.display = 'block'
+    menu4button.style.display = 'none'
 })   
 
 // Arrows Function
@@ -80,7 +84,7 @@ maxAge.addEventListener('blur', () => {
 
 class Player {
     nationalTeam: string
-    player: string
+    name: string
     age: number
     position: string
     photo: string
@@ -108,7 +112,7 @@ async function getNationalTeamPlayers(nationalTeam : string, data : any) : Promi
         if(data[index].nationalTeam === nationalTeam ){
             let nationalTeamPlayer = {
                 nationalTeam: data[index].nationalTeam,
-                player: data[index].player,
+                name: data[index].player,
                 age: data[index].age,
                 position: data[index].position,
                 photo: data[index].photo
@@ -126,7 +130,7 @@ function renderPlayers(players : Player[]){
             let goalkeeperCard = 
             `<div class="player">
                 <img src=${player.photo}>
-                <p>${player.player}</p>
+                <p>${player.name}</p>
                 <p>${player.age} anos</p>
             </div>`
             goalkeeper?.insertAdjacentHTML('beforeend', goalkeeperCard)
@@ -135,7 +139,7 @@ function renderPlayers(players : Player[]){
             let defenderCard = 
             `<div class="player">
                 <img src=${player.photo}>
-                <p>${player.player}</p>
+                <p>${player.name}</p>
                 <p>${player.age} anos</p>
             </div>`
             defender?.insertAdjacentHTML('beforeend', defenderCard)
@@ -144,7 +148,7 @@ function renderPlayers(players : Player[]){
             let midfielderCard = 
             `<div class="player">
                 <img src=${player.photo}>
-                <p>${player.player}</p>
+                <p>${player.name}</p>
                 <p>${player.age} anos</p>
             </div>`
             midfielder?.insertAdjacentHTML('beforeend', midfielderCard)
@@ -153,7 +157,7 @@ function renderPlayers(players : Player[]){
             let attackerCard = 
             `<div class="player">
                 <img src=${player.photo}>
-                <p>${player.player}</p>
+                <p>${player.name}</p>
                 <p>${player.age} anos</p>
             </div>`
             attacker?.insertAdjacentHTML('beforeend', attackerCard)
