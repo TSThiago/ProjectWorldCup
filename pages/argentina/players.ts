@@ -1,6 +1,6 @@
 const menu4button = document.querySelector('#menuButton') as HTMLElement
 const menu4Mobile = document.querySelector('.mobileMenu') as HTMLElement
-const closeMenuButton = document.getElementById('closeMenuButton')
+const navBar = document.querySelector('.navBar') as HTMLElement
 const defRightArrow = document.getElementById('defenderRightArrow') as HTMLElement
 const defLeftArrow = document.getElementById('defenderLeftArrow') as HTMLElement
 const midRightArrow = document.getElementById('midfielderRightArrow') as HTMLElement
@@ -14,15 +14,15 @@ const attacker : HTMLElement = document.getElementById('attackers')
 
 // Menu Mobile
 
-closeMenuButton.addEventListener('click', (e) => {
-    menu4Mobile.style.display = 'none'
-    menu4button.style.display = 'block'
-})
-
-
 menu4button.addEventListener('click', (e) => {
-    menu4Mobile.style.display = 'block'
-    menu4button.style.display = 'none'
+    if(menu4Mobile.style.display === 'block') {
+        menu4Mobile.style.display = 'none'
+    }else{
+        menu4Mobile.style.display = 'block'
+        navBar.style.height = '30vh'
+        menu4button.style.display = 'none'
+
+    }
 })   
 
 // Arrows Function
