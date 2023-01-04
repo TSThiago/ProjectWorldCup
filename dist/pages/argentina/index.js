@@ -3,10 +3,7 @@ let menu3Mobile = document.querySelector('.mobileMenu');
 const button = document.getElementById('groupButton');
 const groupStageBox = document.getElementById('groupStage');
 const groupBox = document.getElementById('groupBox');
-const lasts16 = document.getElementById('last16');
-const quarter = document.getElementById('quarterFinals');
-const semi = document.getElementById('semiFinals');
-const final = document.getElementById('final');
+const knockoutBox = document.getElementById('knockoutBox');
 // Menu Mobile
 menu3button.addEventListener('click', (e) => {
     if (menu3Mobile.style.display === 'block') {
@@ -38,7 +35,7 @@ getAllMatches()
     return getNationalTeamMatches("Argentina", data);
 })
     .then(function (matches) {
-    renderMatches(matches);
+    renderMatches(matches, "Argentina");
 });
 ShowMoreMatches();
 async function getAllMatches() {
@@ -57,55 +54,25 @@ async function getNationalTeamMatches(nationalTeam, data) {
     }
     return arrayNationalTeamMatches;
 }
-function renderMatches(matches) {
+function renderMatches(matches, nationalTeam) {
     let divCreated = false;
     matches.forEach(match => {
-        if ((match.timeA === 'Argentina' && match.fase === 'Classificatória') || (match.timeB === 'Argentina' && match.fase === 'Classificatória')) {
+        if ((match.timeA === nationalTeam && match.fase === 'Classificatória') || (match.timeB === nationalTeam && match.fase === 'Classificatória')) {
             let stageBox = `<div class="score">
                 <p>${match.timeA} X ${match.timeB}</p>
                 <p>${match.gols.timeA} X ${match.gols.TimeB}</p>
             </div>`;
             groupBox === null || groupBox === void 0 ? void 0 : groupBox.insertAdjacentHTML('beforeend', stageBox);
         }
-        if ((match.timeA === 'Argentina' && match.fase === 'Oitavas-Final') || (match.timeB === 'Argentina' && match.fase === 'Oitavas-Final')) {
-            let last16Box = `<div class="box">
+        if ((match.timeA === nationalTeam && match.fase != 'Classificatória') || (match.timeB === nationalTeam && match.fase != 'Classificatória')) {
+            let gameBox = `<div class="box">
             <h3>${match.fase}</h3>
             <div class="score">
                 <p>${match.timeA} X ${match.timeB}</p>
                 <p>${match.gols.timeA} X ${match.gols.TimeB}</p>
             </div>
             </div>`;
-            lasts16 === null || lasts16 === void 0 ? void 0 : lasts16.insertAdjacentHTML('beforeend', last16Box);
-        }
-        if ((match.timeA === 'Argentina' && match.fase === 'Quartas-Final') || (match.timeB === 'Argentina' && match.fase === 'Quartas-Final')) {
-            let quarterBox = `<div class="box">
-            <h3>${match.fase}</h3>
-            <div class="score">
-                <p>${match.timeA} X ${match.timeB}</p>
-                <p>${match.gols.timeA} X ${match.gols.TimeB}</p>
-            </div>
-            </div>`;
-            quarter === null || quarter === void 0 ? void 0 : quarter.insertAdjacentHTML('beforeend', quarterBox);
-        }
-        if ((match.timeA === 'Argentina' && match.fase === 'Semi-Final') || (match.timeB === 'Argentina' && match.fase === 'Semi-Final')) {
-            let semiBox = `<div class="box">
-            <h3>${match.fase}</h3>
-            <div class="score">
-                <p>${match.timeA} X ${match.timeB}</p>
-                <p>${match.gols.timeA} X ${match.gols.TimeB}</p>
-            </div>
-            </div>`;
-            semi === null || semi === void 0 ? void 0 : semi.insertAdjacentHTML('beforeend', semiBox);
-        }
-        if ((match.timeA === 'Argentina' && match.fase === 'Final') || (match.timeB === 'Argentina' && match.fase === 'Final')) {
-            let finalBox = `<div class="box">
-            <h3>${match.fase}</h3>
-            <div class="score">
-                <p>${match.timeA} X ${match.timeB}</p>
-                <p>${match.gols.timeA} X ${match.gols.TimeB}</p>
-            </div>
-            </div>`;
-            final === null || final === void 0 ? void 0 : final.insertAdjacentHTML('beforeend', finalBox);
+            knockoutBox === null || knockoutBox === void 0 ? void 0 : knockoutBox.insertAdjacentHTML('beforeend', gameBox);
         }
     });
 }

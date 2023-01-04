@@ -44,13 +44,27 @@ body {
     background-color: white;
 }
 
+/* Mobile Menu */
+
+#menuButton {
+    background-color: #75a9db
+}
+
 .mobile-menu-icon {
-    display:none
-  }
-  
-  .mobileMenu {
-    display:none
-  }
+    display: none
+}
+
+.mobileMenu {
+    display: none;
+    width: 20vw;
+}
+
+#closeMenuButton {
+    cursor: pointer;
+    height: 25px;
+    width: 25px;
+    background-color: #75a9db
+}
 
 /* Nav Bar */
 
@@ -83,15 +97,15 @@ body {
     display: grid;
     place-content: center;
     margin: 2vh auto;
-    width:90vw;
+    width: 90vw;
     height: 20vh;
 }
 
-form{
+form {
     display: grid;
     place-content: center;
     border-radius: 1em;
-    width:15vw;
+    width: 15vw;
     height: 20vh;
     background-color: #fcf43e;
 }
@@ -185,46 +199,56 @@ input {
     background-color: #75a9db;
 }
 
+
 @media screen and (max-width:800px) {
     .player {
         height: 200px;
         width: 200px;
     }
 
-    .player img {
-        height: 140px;
-        width:140px
+    form {
+        width: 30vw;
     }
 
-    .navPages{
-        display:none
-      }
-    
-      #menuButton {
+    #goalkeepers {
+        flex-direction: column;
+    }
+
+    .player img {
+        height: 140px;
+        width: 140px
+    }
+
+    .navPages {
+        display: none
+    }
+
+    #menuButton {
         height: 40px;
         width: 40px;
-      }
-    
-      .mobile-menu-icon{
+    }
+
+    .mobile-menu-icon {
         display: block;
         margin-right: 2vw;
-      }
-    
-      .mobile-menu-icon img {
+    }
+
+    .mobile-menu-icon img {
         height: 30px;
         cursor: pointer;
-      }
-    
-      .mobileMenu a{
+    }
+
+    .mobileMenu a {
         background-color: #75a9db;
         display: flex;
         flex-direction: column;
         text-align: center;
         text-decoration: none;
         color: white;
-      }
-    
-      .mobileMenu .open {
-        display:block;
-      }
+    }
+
+    .mobileMenu .open {
+        display: block;
+
+    } 
 }

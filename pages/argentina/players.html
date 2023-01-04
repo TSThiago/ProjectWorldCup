@@ -15,94 +15,97 @@
             <a href="../../home.html"><img src="../../images/logo_semsite_semfundo (1).png" alt="logo da Flit" width="150"></a>
         </section>
         <section class="navPages">
-            <a href="home.html">Home</a>
-            <a href="pages/brasil/index.html">Jogos</a>
-            <a href="cadastro.html">Cadastrar</a>
+            <a href="../../home.html">Home</a>
+            <a href="../../pages/brasil/index.html">Jogos</a>
+            <a href="../../cadastro.html">Cadastrar</a>
         </section>
         <div class="mobile-menu-icon">
             <button id="menuButton"><img class="icon" src="../../images/menu.png" alt="Símbolo do Menu"></button>  
         </div>
+        
+        <div class="mobileMenu"> 
+            <a href="../../home.html">Home</a>
+            <a href="../../pages/brasil/index.html">Jogos</a>
+            <a href="../../cadastro.html">Cadastrar</a>
+        </div>
     </header>
 
-    <div class="mobileMenu">
-        <a href="home.html">Home</a>
-        <a href="pages/brasil/index.html">Jogos</a>
-        <a href="cadastro.html">Cadastrar</a>
-    </div>
+    <main>
+        <section class="filter">
+            <form>
+                <label for="minAge">Idade Mínima:</label>
+                <input id="minAge" type="text">
+                <label for="maxAge">Idade Máxima:</label>
+                <input id="maxAge" type="text">
+            </form>
+        </section>
 
-    <section class="filter">
-        <form>
-            <label for="minAge">Idade Mínima:</label>
-            <input id="minAge" type="text">
-            <label for="maxAge">Idade Máxima:</label>
-            <input id="maxAge" type="text">
-        </form>
-    </section>
+        <section class="players">
+            <div class="position">
+                <h2>Goleiros</h2>
+                <div class="playersCards" id="goalkeepers">
+    
+                </div>
+            </div>
+            </div>
+            <div class="position">
+                <h2>Defensores</h2>
+                <div>
+                    <button class="arrow" id="defenderLeftArrow">
+                        <img src="../../images/left-arrow.png" alt="Seta para Esquerda do Carrossel de Zagueiros">
+                    </button>
+                </div>
+                <div class="playersCards" id="defenders">
+    
+                </div>
+                <div>
+                    <button class="arrow" id="defenderRightArrow">
+                        <img src="../../images/right-arrow.png" alt="Seta para Direita do Carrossel de Zagueiros">
+                    </button>
+                </div>
+            </div>
+            </div>
+            <div class="position">
+                <h2>Meio-Campistas</h2>
+                <div>
+                    <button class="arrow" id="midfielderLeftArrow">
+                        <img src="../../images/left-arrow.png" alt="Seta para Esquerda do Carrossel de Meio-Campistas">
+                    </button>
+                </div>
+    
+                <div class="playersCards" id="midfielders">
+    
+                </div>
+                <div>
+                    <button class="arrow" id="midfielderRightArrow">
+                        <img src="../../images/right-arrow.png" alt="Seta para Direita do Carrossel de Meio-Campistas"> 
+                    </button>
+                </div>
+            </div>
+            <div class="position">
+                <h2>Atacantes</h2>
+                <div>
+                    <button class="arrow" id="attackerLeftArrow">
+                        <img src="../../images/left-arrow.png" alt="Seta para Esquerda do Carrossel de Atacantes">
+                    </button>
+                </div>
+                <div class="playersCards" id="attackers">
+    
+                </div>
+                <div>
+                    <button class="arrow" id="attackerRightArrow"> 
+                        <img src="../../images/right-arrow.png" alt="Seta para Direita do Carrosel de Atacantes">
+                    </button>
+                </div>
+            </div>
+            </div>
+        </section>
+    
+        <section class="backButtonSection">
+            <a class="backButton" href="./index.html">Voltar</a>
+        </section>
+    </main>
 
-    <section class="players">
-        <div class="position">
-            <h2>Goleiros</h2>
-            <div class="playersCards" id="goalkeepers">
-
-            </div>
-        </div>
-        </div>
-        <div class="position">
-            <h2>Defensores</h2>
-            <div>
-                <button class="arrow" id="defenderLeftArrow">
-                    <img src="../../images/left-arrow.png" alt="Seta Esquerda">
-                </button>
-            </div>
-            <div class="playersCards" id="defenders">
-
-            </div>
-            <div>
-                <button class="arrow" id="defenderRightArrow">
-                    <img src="../../images/right-arrow.png" alt="Seta Direita">
-                </button>
-            </div>
-        </div>
-        </div>
-        <div class="position">
-            <h2>Meio-Campistas</h2>
-            <div>
-                <button class="arrow" id="midfielderLeftArrow">
-                    <img src="../../images/left-arrow.png" alt="Seta Esquerda">
-                </button>
-            </div>
-
-            <div class="playersCards" id="midfielders">
-
-            </div>
-            <div>
-                <button class="arrow" id="midfielderRightArrow">
-                    <img src="../../images/right-arrow.png" alt="Seta Direita"> 
-                </button>
-            </div>
-        </div>
-        <div class="position">
-            <h2>Atacantes</h2>
-            <div>
-                <button class="arrow" id="attackerLeftArrow">
-                    <img src="../../images/left-arrow.png" alt="Seta Esquerda">
-                </button>
-            </div>
-            <div class="playersCards" id="attackers">
-
-            </div>
-            <div>
-                <button class="arrow" id="attackerRightArrow"> 
-                    <img src="../../images/right-arrow.png" alt="Seta Direita">
-                </button>
-            </div>
-        </div>
-        </div>
-    </section>
-
-    <section class="backButtonSection">
-        <a class="backButton" href="./index.html">Voltar</a>
-    </section>
 </body>
 <script src="../../dist/pages/argentina/players.js"></script>
 

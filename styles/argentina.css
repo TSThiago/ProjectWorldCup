@@ -1,247 +1,268 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 html {
-    box-sizing: border-box;
-    font-size: 16px;
-  }
-  
-  *, *:before, *:after {
-    box-sizing: inherit;
-    text-decoration: none;
-  }
-  
-  body, h1, h2, h3, h4, h5, h6, p, ol, ul {
-    margin: 0;
-    padding: 0;
-    font-weight: normal;
-  }
-  
-  ol, ul {
-    list-style: none;
-  }
-  
-  img {
-    max-width: 100%;
-    height: auto;
-  }
-
-  body{
-    font-family: Poppins;
-    background-color: #eeeeee;
-  }
-
-  .mobile-menu-icon {
-    display:none
-  }
-  
-  .mobileMenu {
-    display:none
-  }
-
-.navBar{
-    display: flex;
-    justify-content: space-between;
-    background-color: #75a9db;
-    height: 20vh;
-    align-items: center;
+  box-sizing: border-box;
+  font-size: 16px;
 }
 
-.navImage{
-    margin-left: 30px;
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  text-decoration: none;
 }
 
-.navPages{
-    margin-right: 20px;
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
 }
 
-.navPages a{
-    text-decoration: none;
-    font-size: 30px;
-    margin: 10px;
-    color: white;
+ol,
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+body {
+  font-family: Poppins;
+  background-color: #eeeeee;
+}
+
+/* Mobile Menu */
+
+#menuButton {
+  background-color: #75a9db
+}
+
+.mobile-menu-icon {
+  display: none
+}
+
+.mobileMenu {
+  margin-right: 30px;
+  display: none
+}
+
+/* Nav Bar */
+
+.navBar {
+  display: flex;
+  justify-content: space-between;
+  background-color: #75a9db;
+  height: 20vh;
+  align-items: center;
+}
+
+.navImage {
+  margin-left: 30px;
+}
+
+.navPages {
+  margin-right: 20px;
+}
+
+.navPages a {
+  text-decoration: none;
+  font-size: 30px;
+  margin: 10px;
+  color: white;
 }
 
 /* Argentina Page */
 
-.options{
-    margin: 0 auto;
-    height: 20vh;
-    width: 90vw;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.options {
+  margin: 0 auto;
+  height: 20vh;
+  width: 90vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .button {
-    display: grid;
-    place-content: center;
-    background-color: #042940;
-    width:8vw;
-    height:8vh;
-    border-radius: 1.5em;
+  display: grid;
+  place-content: center;
+  background-color: #042940;
+  width: 8vw;
+  height: 8vh;
+  border-radius: 1.5em;
 }
 
-.button a{
-    color:white
+.button a {
+  color: white
 }
 
-.nationalTeam{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    flex-wrap: wrap;
-    height: 10vh;
-    width:30vw;
+.nationalTeam {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 10vh;
+  width: 30vw;
 }
 
-.nationalTeam img{
-    height: 15vh;
+.nationalTeam img {
+  height: 15vh;
 }
 
-.nationalTeam span{
-    height: 3vh;
-    font-weight: 700;
-    font-size: larger;
+.nationalTeam span {
+  height: 3vh;
+  font-weight: 700;
+  font-size: larger;
 }
 
-.nationalTeam a{
-    margin-top: 1.5vh;
-    display: grid;
-    place-content: center;
-    background-color: #042940;
-    color:white;
-    width:12vw;
-    height:5vh;
-    border-radius: 1.5em;
+.nationalTeam a {
+  margin-top: 1.5vh;
+  display: grid;
+  place-content: center;
+  background-color: #042940;
+  color: white;
+  width: 12vw;
+  height: 5vh;
+  border-radius: 1.5em;
 }
 
-.matchResults{
-    width: 90vw;
-    height: auto;
-    margin:2vh auto
+.matchResults {
+  width: 90vw;
+  height: auto;
+  margin: 2vh auto
 }
 
 #groupBox {
-    display: flex;
-    flex-wrap: wrap;
-    height: 40vh;
-    width:90vw;
-    background-color: white;
-    overflow: hidden;
-    border-radius: 1em;
+  display: flex;
+  flex-wrap: wrap;
+  height: 40vh;
+  width: 90vw;
+  background-color: white;
+  overflow: hidden;
+  border-radius: 1em;
 }
 
 #groupBox h3 {
-    height: 5vh;
-    width: 90vw;
-    display: grid;
-    gap: 1vh;
-    place-content: center;
-    text-align: center;
+  height: 5vh;
+  width: 90vw;
+  display: grid;
+  gap: 1vh;
+  place-content: center;
+  text-align: center;
 }
 
 .score {
-    height: 23vh;
-    width:35vw;
-    border-radius: 1em;
-    margin: 1vh auto;
-    display: grid;
-    place-content: center;
-    text-align: center;
-    background-color: #75a9db;
+  height: 23vh;
+  width: 35vw;
+  border-radius: 1em;
+  margin: 1vh auto;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  background-color: #75a9db;
 }
 
 .groupBut {
-    height: 10vh;
-    width: 90vw;
-    display: grid;
-    place-content: center;
+  height: 10vh;
+  width: 90vw;
+  display: grid;
+  place-content: center;
 }
 
 #groupButton {
-    font-size: larger;
-    border-radius: 1em;
-    height: 8vh;
-    width: 10vw;
-    background-color: #fcf43e;
-    cursor: pointer;
+  font-size: larger;
+  border-radius: 1em;
+  height: 8vh;
+  width: 10vw;
+  background-color: #fcf43e;
+  cursor: pointer;
 }
 
 .box {
-    display: flex;
-    flex-wrap: wrap;
-    margin:2vh auto;
-    height: 30vh;
-    width:40vw;
-    background-color: white;
-    overflow: hidden;
-    border-radius: 1em;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 2vh auto;
+  height: 30vh;
+  width: 40vw;
+  background-color: white;
+  overflow: hidden;
+  border-radius: 1em;
 }
 
 .box h3 {
-    height: 5vh;
-    width: 40vw;
-    display: grid;
-    gap: 1vh;
-    place-content: center;
-    text-align: center;
+  height: 5vh;
+  width: 40vw;
+  display: grid;
+  gap: 1vh;
+  place-content: center;
+  text-align: center;
 }
 
 @media screen and (max-width : 800px) {
-       .button {
-        display: grid;
-        place-content: center;
-        background-color: #042940;
-        width:10vw;
-        height:10vh;
-        border-radius: 1.5em;
-    }
+  .button {
+    display: grid;
+    place-content: center;
+    background-color: #042940;
+    width: 10vw;
+    height: 10vh;
+    border-radius: 1.5em;
+  }
 
-    .nationalTeam{
-        height:10vh;
-        width:35vw;
-        margin-right: 1vw;
-    }
+  .nationalTeam {
+    height: 10vh;
+    width: 35vw;
+    margin-right: 1vw;
+  }
 
-    .nationalTeam img{
-        margin-right: 1vw;
-    }
+  .nationalTeam img {
+    margin-right: 1vw;
+  }
 
-    .nationalTeam a{
-        width:16vw;
-        height:5vh;
-    }
+  .nationalTeam a {
+    width: 16vw;
+    height: 5vh;
+  }
 
-    .navPages{
-        display:none
-      }
-    
-      #menuButton {
-        height: 40px;
-        width: 40px;
-      }
-    
-      .mobile-menu-icon{
-        display: block;
-        margin-right: 2vw;
-      }
-    
-      .mobile-menu-icon img {
-        height: 30px;
-        cursor: pointer;
-      }
-    
-      .mobileMenu a{
-        background-color: #75a9db;
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-        text-decoration: none;
-        color: white;
-      }
-    
-      .mobileMenu .open {
-        display:block;
-      }
+  .navPages {
+    display: none
+  }
+
+  #menuButton {
+    height: 40px;
+    width: 40px;
+  }
+
+  .mobile-menu-icon {
+    display: block;
+    margin-right: 2vw;
+  }
+
+  .mobile-menu-icon img {
+    height: 30px;
+    cursor: pointer;
+  }
+
+  .mobileMenu a {
+    background-color: #75a9db;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+  }
+
+  .mobileMenu .open {
+    display: block;
+  }
 }
