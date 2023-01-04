@@ -1,15 +1,3 @@
-let menuButtonBarPlayers = document.querySelector('.icon') as HTMLElement
-let menuMobileBarPlayers = document.querySelector('.mobileMenu') as HTMLElement
-
-menuButtonBarPlayers.addEventListener('click', (e) => {
-        console.log('teste')
-        if(menuMobileBarPlayers.style.display === 'block') {
-            menuMobileBarPlayers.style.display = 'none'
-        }else{
-            menuMobileBarPlayers.style.display = 'block'
-        }
-    })    
-
 interface iPlayers {
     nationalTeam: string,
     player: string,
@@ -20,7 +8,7 @@ interface iPlayers {
 }
 
 async function playersApi() {
-    await fetch('https://apigenerator.dronahq.com/api/x5mONs4F/players')
+    fetch('https://apigenerator.dronahq.com/api/x5mONs4F/players')
         .then(function (response) {
             return response.json();
         })
@@ -41,7 +29,7 @@ function renderPlayersCards(playersList: iPlayers[]) {
     playersList.forEach(player => {
         if (player.position === 'Goleiro' && player.nationalTeam === 'Brasil') {
             let attackersCard = `<div class="player">
-                <img src=${player.photo}>
+                <img src=${player.photo} alt="goleiro do Brasil escalado para a Copa">
                 <p>${player.player}</p>
                 <p>${player.age} anos</p>
             </div>`
@@ -49,7 +37,7 @@ function renderPlayersCards(playersList: iPlayers[]) {
         }
         if (player.position === 'Lateral' && player.nationalTeam === 'Brasil') {
             let lateralsCard = `<div class="player">
-            <img src=${player.photo}>
+            <img src=${player.photo} alt="lateral do Brasil escalado para a Copa">
             <p>${player.player}</p>
             <p>${player.age} anos</p>
         </div>`
@@ -57,7 +45,7 @@ function renderPlayersCards(playersList: iPlayers[]) {
         }
         if (player.position === 'Zagueiro' && player.nationalTeam === 'Brasil') {
             let defendersCard = `<div class="player">
-            <img src=${player.photo}>
+            <img src=${player.photo} alt="zagueiro do Brasil escalado para a Copa">
             <p>${player.player}</p>
             <p>${player.age} anos</p>
         </div>`
@@ -65,7 +53,7 @@ function renderPlayersCards(playersList: iPlayers[]) {
         }
         if (player.position === 'Meio-campista' && player.nationalTeam === 'Brasil') {
             let midfieldersCard = `<div class="player">
-            <img src=${player.photo}>
+            <img src=${player.photo} alt="meio-campista do Brasil escalado para a Copa">
             <p>${player.player}</p>
             <p>${player.age} anos</p>
         </div>`
@@ -73,7 +61,7 @@ function renderPlayersCards(playersList: iPlayers[]) {
         }
         if (player.position === 'Atacante' && player.nationalTeam === 'Brasil') {
             let attackersCard = `<div class="player">
-            <img src=${player.photo}>
+            <img src=${player.photo} alt="atacante do Brasil escalado para a Copa">
             <p>${player.player}</p>
             <p>${player.age} anos</p>
         </div>`
@@ -88,11 +76,11 @@ const maximumAge = document.getElementById('maximumAge') as HTMLInputElement
 
 async function filterAge(minimumAge, maximumAge){
     const players: NodeListOf<Element> = document.querySelectorAll('.player')
-    await fetch('https://apigenerator.dronahq.com/api/x5mONs4F/players')
+    fetch('https://apigenerator.dronahq.com/api/x5mONs4F/players')
         .then(function (response) {
             return response.json();
         })
-    .then(function (data) {
+        .then(function (data) {
             const filteredPlayers: iPlayers[] = data.filter(player => player.age >= minimumAge && player.age <= maximumAge)
             players.forEach(player => {
                 player.remove()
@@ -109,113 +97,62 @@ maximumAge.addEventListener('blur', () => {
 
 
 //CARROSSEL
-const arrowRightAttackers: HTMLElement | null = document.getElementById('arrowRightAttackers')
-const arrowLeftAttackers: HTMLElement | null = document.getElementById('arrowLeftAttackers')
-const attackersScroll: HTMLElement | null = document.getElementById('attackers')
+let carouselScroll: number = 0
 
-let carouselAttackersScroll: number = 0
-
-function scrollAttackers(newCarouselScroll: number){
+function scroll(newCarouselScroll: number, playerScroll){
     if(newCarouselScroll < 0){
         return
     }
-    attackersScroll.scroll({
+    playerScroll.scroll({
         top: 0,
         left: newCarouselScroll,
         behavior: 'smooth'
     })
-    carouselAttackersScroll = newCarouselScroll
+    carouselScroll = newCarouselScroll
 }
 
-arrowRightAttackers.addEventListener('click', () => scrollAttackers(carouselAttackersScroll + 200))
-arrowLeftAttackers.addEventListener('click', () => scrollAttackers(carouselAttackersScroll - 200))
+const arrowRightAttackers: HTMLElement | null = document.getElementById('arrowRightAttackers')
+const arrowLeftAttackers: HTMLElement | null = document.getElementById('arrowLeftAttackers')
+const attackersScroll: HTMLElement | null = document.getElementById('attackers')
+
+arrowLeftAttackers.addEventListener('click', () => scroll(carouselScroll - 200, attackersScroll))
+arrowRightAttackers.addEventListener('click', () => scroll(carouselScroll + 200, attackersScroll))
 
 
 const arrowLeftMidFielders: HTMLElement | null = document.getElementById('arrowLeftMidfielders')
 const arrowRightMidFielders: HTMLElement | null = document.getElementById('arrowRightMidfielders')
 const midfieldersScroll: HTMLElement | null = document.getElementById('midfielders')
 
-let carouselMidfieldersScroll: number = 0
 
-function scrollMidfielders(newCarouselScroll: number){
-    if(newCarouselScroll < 0){
-        return
-    }
-    midfieldersScroll.scroll({
-        top: 0,
-        left: newCarouselScroll,
-        behavior: 'smooth'
-    })
-    carouselMidfieldersScroll = newCarouselScroll
-}
-
-arrowLeftMidFielders.addEventListener('click', () => scrollMidfielders(carouselMidfieldersScroll - 200))
-arrowRightMidFielders.addEventListener('click', () => scrollMidfielders(carouselMidfieldersScroll + 200))
+arrowLeftMidFielders.addEventListener('click', () => scroll(carouselScroll - 200, midfieldersScroll))
+arrowRightMidFielders.addEventListener('click', () => scroll(carouselScroll + 200, midfieldersScroll))
 
 
 const arrowLeftDefenders: HTMLElement | null = document.getElementById('arrowLeftDefenders')
 const arrowRightDefenders: HTMLElement | null = document.getElementById('arrowRightDefenders')
 const defendersScroll: HTMLElement | null = document.getElementById('defenders')
 
-let carouselDefendersScroll: number = 0
 
-
-function scrollDefenders(newCarouselScroll: number){
-    if(newCarouselScroll < 0){
-        return
-    }
-    defendersScroll.scroll({
-        top: 0,
-        left: newCarouselScroll,
-        behavior: 'smooth'
-    })
-    carouselDefendersScroll = newCarouselScroll
-}
-
-arrowLeftDefenders.addEventListener('click', () => scrollDefenders(carouselDefendersScroll - 200))
-arrowRightDefenders.addEventListener('click', () => scrollDefenders(carouselDefendersScroll + 200))
+arrowLeftDefenders.addEventListener('click', () => scroll(carouselScroll - 200, defendersScroll))
+arrowRightDefenders.addEventListener('click', () => scroll(carouselScroll + 200, defendersScroll))
 
 
 const arrowLeftLaterals: HTMLElement | null = document.getElementById('arrowLeftLaterals')
 const arrowRightLaterals: HTMLElement | null = document.getElementById('arrowRightLaterals')
 const lateralsScroll: HTMLElement | null = document.getElementById('laterals')
 
-let carouselLateralsScroll: number = 0
 
-function scrollLaterals(newCarouselScroll: number){
-    if(newCarouselScroll < 0){
-        return
-    }
-    lateralsScroll.scroll({
-        top: 0,
-        left: newCarouselScroll,
-        behavior: 'smooth'
-    })
-    carouselLateralsScroll = newCarouselScroll
-}
-
-arrowLeftLaterals.addEventListener('click', () => scrollLaterals(carouselLateralsScroll - 200))
-arrowRightLaterals.addEventListener('click', () => scrollLaterals(carouselLateralsScroll + 200))
+arrowLeftLaterals.addEventListener('click', () => scroll(carouselScroll - 200, lateralsScroll))
+arrowRightLaterals.addEventListener('click', () => scroll(carouselScroll + 200, lateralsScroll))
 
 
 const arrowLeftGoalkeepers: HTMLElement | null = document.getElementById('arrowLeftGoalkeepers')
 const arrowRightGoalkeepers: HTMLElement | null = document.getElementById('arrowRightGoalkeepers')
 const goalkeepersScroll: HTMLElement | null = document.getElementById('goalkeepers')
 
-let carouselGoalkeepersScroll: number = 0
+arrowLeftGoalkeepers.addEventListener('click', () => scroll(carouselScroll - 200, goalkeepersScroll))
+arrowRightGoalkeepers.addEventListener('click', () => scroll(carouselScroll + 200, goalkeepersScroll))
 
-function scrollGoalkeepers(newCarouselScroll: number){
-    if(newCarouselScroll < 0){
-        return
-    }
-    goalkeepersScroll.scroll({
-        top: 0,
-        left: newCarouselScroll,
-        behavior: 'smooth'
-    })
-    carouselGoalkeepersScroll = newCarouselScroll
-}
 
-arrowLeftGoalkeepers.addEventListener('click', () => scrollGoalkeepers(carouselGoalkeepersScroll - 200))
-arrowRightGoalkeepers.addEventListener('click', () => scrollGoalkeepers(carouselGoalkeepersScroll + 200))
+
 

@@ -1,16 +1,5 @@
-let menuButtonBarPlayers = document.querySelector('.icon');
-let menuMobileBarPlayers = document.querySelector('.mobileMenu');
-menuButtonBarPlayers.addEventListener('click', (e) => {
-    console.log('teste');
-    if (menuMobileBarPlayers.style.display === 'block') {
-        menuMobileBarPlayers.style.display = 'none';
-    }
-    else {
-        menuMobileBarPlayers.style.display = 'block';
-    }
-});
 async function playersApi() {
-    await fetch('https://apigenerator.dronahq.com/api/x5mONs4F/players')
+    fetch('https://apigenerator.dronahq.com/api/x5mONs4F/players')
         .then(function (response) {
         return response.json();
     })
@@ -28,7 +17,7 @@ function renderPlayersCards(playersList) {
     playersList.forEach(player => {
         if (player.position === 'Goleiro' && player.nationalTeam === 'Brasil') {
             let attackersCard = `<div class="player">
-                <img src=${player.photo}>
+                <img src=${player.photo} alt="goleiro do Brasil escalado para a Copa">
                 <p>${player.player}</p>
                 <p>${player.age} anos</p>
             </div>`;
@@ -36,7 +25,7 @@ function renderPlayersCards(playersList) {
         }
         if (player.position === 'Lateral' && player.nationalTeam === 'Brasil') {
             let lateralsCard = `<div class="player">
-            <img src=${player.photo}>
+            <img src=${player.photo} alt="lateral do Brasil escalado para a Copa">
             <p>${player.player}</p>
             <p>${player.age} anos</p>
         </div>`;
@@ -44,7 +33,7 @@ function renderPlayersCards(playersList) {
         }
         if (player.position === 'Zagueiro' && player.nationalTeam === 'Brasil') {
             let defendersCard = `<div class="player">
-            <img src=${player.photo}>
+            <img src=${player.photo} alt="zagueiro do Brasil escalado para a Copa">
             <p>${player.player}</p>
             <p>${player.age} anos</p>
         </div>`;
@@ -52,7 +41,7 @@ function renderPlayersCards(playersList) {
         }
         if (player.position === 'Meio-campista' && player.nationalTeam === 'Brasil') {
             let midfieldersCard = `<div class="player">
-            <img src=${player.photo}>
+            <img src=${player.photo} alt="meio-campista do Brasil escalado para a Copa">
             <p>${player.player}</p>
             <p>${player.age} anos</p>
         </div>`;
@@ -60,7 +49,7 @@ function renderPlayersCards(playersList) {
         }
         if (player.position === 'Atacante' && player.nationalTeam === 'Brasil') {
             let attackersCard = `<div class="player">
-            <img src=${player.photo}>
+            <img src=${player.photo} alt="atacante do Brasil escalado para a Copa">
             <p>${player.player}</p>
             <p>${player.age} anos</p>
         </div>`;
@@ -73,7 +62,7 @@ const minimumAge = document.getElementById('minimumAge');
 const maximumAge = document.getElementById('maximumAge');
 async function filterAge(minimumAge, maximumAge) {
     const players = document.querySelectorAll('.player');
-    await fetch('https://apigenerator.dronahq.com/api/x5mONs4F/players')
+    fetch('https://apigenerator.dronahq.com/api/x5mONs4F/players')
         .then(function (response) {
         return response.json();
     })
@@ -91,89 +80,41 @@ maximumAge.addEventListener('blur', () => {
     filterAge(minimumAgeValue, maximumAgeValue);
 });
 //CARROSSEL
+let carouselScroll = 0;
+function scroll(newCarouselScroll, playerScroll) {
+    if (newCarouselScroll < 0) {
+        return;
+    }
+    playerScroll.scroll({
+        top: 0,
+        left: newCarouselScroll,
+        behavior: 'smooth'
+    });
+    carouselScroll = newCarouselScroll;
+}
 const arrowRightAttackers = document.getElementById('arrowRightAttackers');
 const arrowLeftAttackers = document.getElementById('arrowLeftAttackers');
 const attackersScroll = document.getElementById('attackers');
-let carouselAttackersScroll = 0;
-function scrollAttackers(newCarouselScroll) {
-    if (newCarouselScroll < 0) {
-        return;
-    }
-    attackersScroll.scroll({
-        top: 0,
-        left: newCarouselScroll,
-        behavior: 'smooth'
-    });
-    carouselAttackersScroll = newCarouselScroll;
-}
-arrowRightAttackers.addEventListener('click', () => scrollAttackers(carouselAttackersScroll + 200));
-arrowLeftAttackers.addEventListener('click', () => scrollAttackers(carouselAttackersScroll - 200));
+arrowLeftAttackers.addEventListener('click', () => scroll(carouselScroll - 200, attackersScroll));
+arrowRightAttackers.addEventListener('click', () => scroll(carouselScroll + 200, attackersScroll));
 const arrowLeftMidFielders = document.getElementById('arrowLeftMidfielders');
 const arrowRightMidFielders = document.getElementById('arrowRightMidfielders');
 const midfieldersScroll = document.getElementById('midfielders');
-let carouselMidfieldersScroll = 0;
-function scrollMidfielders(newCarouselScroll) {
-    if (newCarouselScroll < 0) {
-        return;
-    }
-    midfieldersScroll.scroll({
-        top: 0,
-        left: newCarouselScroll,
-        behavior: 'smooth'
-    });
-    carouselMidfieldersScroll = newCarouselScroll;
-}
-arrowLeftMidFielders.addEventListener('click', () => scrollMidfielders(carouselMidfieldersScroll - 200));
-arrowRightMidFielders.addEventListener('click', () => scrollMidfielders(carouselMidfieldersScroll + 200));
+arrowLeftMidFielders.addEventListener('click', () => scroll(carouselScroll - 200, midfieldersScroll));
+arrowRightMidFielders.addEventListener('click', () => scroll(carouselScroll + 200, midfieldersScroll));
 const arrowLeftDefenders = document.getElementById('arrowLeftDefenders');
 const arrowRightDefenders = document.getElementById('arrowRightDefenders');
 const defendersScroll = document.getElementById('defenders');
-let carouselDefendersScroll = 0;
-function scrollDefenders(newCarouselScroll) {
-    if (newCarouselScroll < 0) {
-        return;
-    }
-    defendersScroll.scroll({
-        top: 0,
-        left: newCarouselScroll,
-        behavior: 'smooth'
-    });
-    carouselDefendersScroll = newCarouselScroll;
-}
-arrowLeftDefenders.addEventListener('click', () => scrollDefenders(carouselDefendersScroll - 200));
-arrowRightDefenders.addEventListener('click', () => scrollDefenders(carouselDefendersScroll + 200));
+arrowLeftDefenders.addEventListener('click', () => scroll(carouselScroll - 200, defendersScroll));
+arrowRightDefenders.addEventListener('click', () => scroll(carouselScroll + 200, defendersScroll));
 const arrowLeftLaterals = document.getElementById('arrowLeftLaterals');
 const arrowRightLaterals = document.getElementById('arrowRightLaterals');
 const lateralsScroll = document.getElementById('laterals');
-let carouselLateralsScroll = 0;
-function scrollLaterals(newCarouselScroll) {
-    if (newCarouselScroll < 0) {
-        return;
-    }
-    lateralsScroll.scroll({
-        top: 0,
-        left: newCarouselScroll,
-        behavior: 'smooth'
-    });
-    carouselLateralsScroll = newCarouselScroll;
-}
-arrowLeftLaterals.addEventListener('click', () => scrollLaterals(carouselLateralsScroll - 200));
-arrowRightLaterals.addEventListener('click', () => scrollLaterals(carouselLateralsScroll + 200));
+arrowLeftLaterals.addEventListener('click', () => scroll(carouselScroll - 200, lateralsScroll));
+arrowRightLaterals.addEventListener('click', () => scroll(carouselScroll + 200, lateralsScroll));
 const arrowLeftGoalkeepers = document.getElementById('arrowLeftGoalkeepers');
 const arrowRightGoalkeepers = document.getElementById('arrowRightGoalkeepers');
 const goalkeepersScroll = document.getElementById('goalkeepers');
-let carouselGoalkeepersScroll = 0;
-function scrollGoalkeepers(newCarouselScroll) {
-    if (newCarouselScroll < 0) {
-        return;
-    }
-    goalkeepersScroll.scroll({
-        top: 0,
-        left: newCarouselScroll,
-        behavior: 'smooth'
-    });
-    carouselGoalkeepersScroll = newCarouselScroll;
-}
-arrowLeftGoalkeepers.addEventListener('click', () => scrollGoalkeepers(carouselGoalkeepersScroll - 200));
-arrowRightGoalkeepers.addEventListener('click', () => scrollGoalkeepers(carouselGoalkeepersScroll + 200));
+arrowLeftGoalkeepers.addEventListener('click', () => scroll(carouselScroll - 200, goalkeepersScroll));
+arrowRightGoalkeepers.addEventListener('click', () => scroll(carouselScroll + 200, goalkeepersScroll));
 //# sourceMappingURL=players.js.map

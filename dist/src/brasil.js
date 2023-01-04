@@ -1,14 +1,3 @@
-let menuButtonBar = document.querySelector('.icon');
-let menuMobileBar = document.querySelector('.mobileMenu');
-menuButtonBar.addEventListener('click', (e) => {
-    console.log('teste');
-    if (menuMobileBar.style.display === 'block') {
-        menuMobileBar.style.display = 'none';
-    }
-    else {
-        menuMobileBar.style.display = 'block';
-    }
-});
 // BOTÃO DE VER MAIS E VER MENOS
 const buttonMore = document.getElementById('buttonMore');
 const sectionQualifying = document.getElementById('qualifying');
@@ -44,7 +33,7 @@ function openMoreDetails() {
 }
 buttonMore === null || buttonMore === void 0 ? void 0 : buttonMore.addEventListener('click', openMoreDetails);
 async function getQualifyingGames(country) {
-    await fetch('https://apigenerator.dronahq.com/api/zs9PYAhn/jogos')
+    fetch('https://apigenerator.dronahq.com/api/zs9PYAhn/jogos')
         .then(function (response) {
         return response.json();
     })
@@ -84,62 +73,43 @@ async function getQualifyingGames(country) {
     });
 }
 getQualifyingGames('Brasil');
-async function getPenultimateGame(country) {
-    await fetch('https://apigenerator.dronahq.com/api/zs9PYAhn/jogos')
+async function gamesApi() {
+    fetch('https://apigenerator.dronahq.com/api/zs9PYAhn/jogos')
         .then(function (response) {
         return response.json();
     })
         .then(function (data) {
-        const teamPenultimateGame = document.getElementById('teamPenultimateGame');
-        const scorePenultimateGame = document.getElementById('scorePenultimateGame');
-        let timeAPenultimateGame = '';
-        let timeBPenultimateGame = '';
-        let golTimeAPenultimateGame = 0;
-        let golTimeBPenultimateGame = 0;
-        data.forEach(game => {
-            if (game.fase === 'Oitavas-Final') {
-                if (game.timeA === country || game.timeB === country) {
-                    timeAPenultimateGame = game.timeA;
-                    timeBPenultimateGame = game.timeB;
-                    golTimeAPenultimateGame = game.gols.timeA;
-                    golTimeBPenultimateGame = game.gols.TimeB;
-                }
+        renderGamesCards(data);
+    });
+}
+gamesApi();
+function renderGamesCards(gamesList) {
+    const main = document.getElementById('main');
+    gamesList.forEach(game => {
+        if (game.fase === 'Oitavas-Final') {
+            if (game.timeA === 'Brasil' || game.timeB === 'Brasil') {
+                let gameCard = `<section class="penultimateGame">
+                <h1 class="titleQualifying">Oitavas de final</h1>
+                <div class="scoreboard">
+                    <p>${game.timeA} x ${game.timeB}</p><br>
+                    <p>${game.gols.timeA} x ${game.gols.TimeB}</p>
+                </div>
+            </section>`;
+                main === null || main === void 0 ? void 0 : main.insertAdjacentHTML('beforeend', gameCard);
             }
-        });
-        if (teamPenultimateGame && scorePenultimateGame !== null) {
-            teamPenultimateGame.innerHTML = `${timeAPenultimateGame} x ${timeBPenultimateGame}`;
-            scorePenultimateGame.innerHTML = `${golTimeAPenultimateGame} x ${golTimeBPenultimateGame}`;
+        }
+        if (game.fase === 'Quartas-Final') {
+            if (game.timeA === 'Brasil' || game.timeB === 'Brasil') {
+                let gameCard = `<section class="lastGame">
+                <h1 class="titleQualifying">Quartas de Final</h1>
+                <div class="scoreboard">
+                    <p>${game.timeA} x ${game.timeB}</p><br>
+                    <p>${game.gols.timeA} x ${game.gols.TimeB}</p>
+                </div>
+            </section>`;
+                main === null || main === void 0 ? void 0 : main.insertAdjacentHTML('beforeend', gameCard);
+            }
         }
     });
 }
-getPenultimateGame('Brasil');
-async function getLastGame(country) {
-    await fetch('https://apigenerator.dronahq.com/api/zs9PYAhn/jogos')
-        .then(function (response) {
-        return response.json();
-    })
-        .then(function (data) {
-        const teamLastGame = document.getElementById('teamLastGame');
-        const scoreLastGame = document.getElementById('scoreLastGame');
-        let timeALastGame = '';
-        let timeBLastGame = '';
-        let golTimeALastGame = 0;
-        let golTimeBLastGame = 0;
-        data.forEach(game => {
-            if (game.fase === 'Quartas-Final') {
-                if (game.timeA === country || game.timeB === country) {
-                    timeALastGame = game.timeA;
-                    timeBLastGame = game.timeB;
-                    golTimeALastGame = game.gols.timeA;
-                    golTimeBLastGame = game.gols.TimeB;
-                }
-            }
-        });
-        if (teamLastGame && scoreLastGame !== null) {
-            teamLastGame.innerHTML = `${timeALastGame} x ${timeBLastGame}`;
-            scoreLastGame.innerHTML = `${golTimeALastGame} x ${golTimeBLastGame}`;
-        }
-    });
-}
-getLastGame('Brasil');
 //# sourceMappingURL=brasil.js.map
